@@ -35,7 +35,7 @@ SYMBOL="%(!.#.%{$FG[$HLORANGE]%}%{$BG[$BLACK]%}%{$FG[$HLWHITE]%}$ )%{$reset_colo
 
 
 PROMPT='$FADEL$LAMDA$FADER$USER$DIRECTORY$(git_prompt_info)$SYMBOL'
-RPROMPT="[%*]"
+RPROMPT="%t"
 
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX=" $LAMDA2 %{$FG[$HLPINK]%}"
