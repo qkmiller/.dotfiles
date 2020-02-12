@@ -101,7 +101,10 @@ alias viconf="vi ~/.config/nvim/init.vim"
 # Somthing for fuzzyfinder...
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Export 
+# Set default editor for git
+export GIT_EDITOR=nvim
+
+# Export dotfiles folder
 export DOTS=~"/.dotfiles"
 
 # Path export vars...
