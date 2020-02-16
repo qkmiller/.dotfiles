@@ -5,23 +5,21 @@ HLPINK=207
 HLGREEN=118
 RED=196
 BLACK=000
-
-# Prompt colors for username, working directory, and prompt symbol
 USERCOLOR=$RED
 
-#Change color if user is not root
+#Change color of username if user is not root
 	if [ $UID -ne 0 ]; then
 	USERCOLOR=$HLGREY
 fi
 
-# Fade into from left
+# Fade in from left
 FADEL="%{$FG[$HLGREY]%}|%{$BG[$HLGREY]%}%{$FG[$BLACK]%}▒%{$BG[$HLORANGE]%}%{$FG[$HLGREY]%}▓▒░҉𒀸"
 
 # Half-life symbols
 LAMDA="%{$FG[$HLWHITE]%}λ⃝."
 LAMDA2="%{$FG[$HLORANGE]%}λ⃝."
 
-# Fade into from right
+# Fade out to right
 FADER="%{$BG[$HLORANGE]%}%{$FG[$HLGREY]%}₈░҉▒▓%{$BG[$HLGREY]%}%{$FG[$BLACK]%}▒%{$BG[$BLACK]%}%{$FG[$HLGREY]%}|%{$reset_color%}"
 
 # Working directory
@@ -33,15 +31,16 @@ USER="%{$FG[$USERCOLOR]%}%B%n%b%{$reset_color%}"
 # Prompt symbol
 SYMBOL="%(!.#.%{$FG[$HLORANGE]%}%{$BG[$BLACK]%}%{$FG[$HLWHITE]%}$ )%{$reset_color%}"
 
-
-PROMPT='$FADEL$LAMDA$FADER$USER$DIRECTORY$(git_prompt_info)$SYMBOL'
+# Prompt
+PROMPT='%{$FG[$HLORANGE]%}╔$FADEL$LAMDA$FADER$USER$DIRECTORY$(git_prompt_info)
+%{$FG[$HLORANGE]%}╚$SYMBOL'
 RPROMPT="%t"
 
-# git theming
-ZSH_THEME_GIT_PROMPT_PREFIX=" $LAMDA2 %{$FG[$HLPINK]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
+# Git info
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[$HLPINK]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[$HLPINK]%})"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$FG[$RED]%}*"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[$RED]%}+"
 
 # LS colors, made with https://geoff.greer.fm/lscolors/
 export LSCOLORS="Exfxcxdxbxegedabagacad"
