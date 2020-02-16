@@ -32,8 +32,8 @@ USER="%{$FG[$USERCOLOR]%}%B%n%b%{$reset_color%}"
 SYMBOL="%(!.#.%{$FG[$HLORANGE]%}%{$BG[$BLACK]%}%{$FG[$HLWHITE]%}$ )%{$reset_color%}"
 
 # Prompt
-PROMPT='%{$FG[$HLORANGE]%}╔$FADEL$LAMDA$FADER$USER$DIRECTORY$(git_prompt_info)
-%{$FG[$HLORANGE]%}╚$SYMBOL'
+PROMPT='%{$FG[$HLORANGE]%}╭─$FADEL$LAMDA$FADER$USER$DIRECTORY$(git_prompt_info)
+%{$FG[$HLORANGE]%}╰─$SYMBOL'
 RPROMPT="%t"
 
 # Git info
