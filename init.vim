@@ -2,8 +2,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'branch': 'master' }
-Plug 'lifepillar/vim-solarized8'
-Plug 'tomasiser/vim-code-dark'
+Plug 'reini-1/vim-code-darker'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -12,9 +11,9 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Colorscheme
-colorscheme codedark
+colorscheme codedarker
 
-" Set terminal colors
+" Set terminal colors (I don't think this is currently doing anything)
 set termguicolors
 
 " Copy to system clipboard
@@ -62,7 +61,7 @@ set listchars=tab:\^\
 set splitright
 
 " Escaping insert mode quickly:
-inoremap kj <ESC>
+inoremap jj <ESC>
 
 " Remap semi-colon to colon:
 map ; :
