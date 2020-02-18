@@ -4,11 +4,15 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'branch': 'master' }
 Plug 'reini-1/vim-code-darker'
 Plug 'yuezk/vim-js'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 call plug#end()
+
+" Enable indent guides
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Colorscheme
 colorscheme codedarker
