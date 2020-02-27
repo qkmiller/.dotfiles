@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'branch': 'master' }
+Plug 'exu/pgsql.vim'
 Plug 'reini-1/vim-code-darker'
 Plug 'yuezk/vim-js'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -98,6 +99,9 @@ let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_build_constraints = 1
 let g:go_mod_fmt_autosave = 1
+
+" SQL syntax highlighting
+let g:sql_type_default = 'pgsql'
 
 " NERDTree settings
 " ===================
