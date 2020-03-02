@@ -57,10 +57,6 @@ nnoremap <CR> o<ESC>
 " set line numbers
 set number relativenumber
 
-" set list characters
-" (characters that represent tabs, EOL, and whitespace)
-set list
-
 " Split new windows right
 set splitright
 
