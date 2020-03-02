@@ -17,7 +17,7 @@ USER="$GREEN%B%n%b%{$reset_color%}"
 SYMBOL="%(!.#.$)"
 
 # Prompt
-PROMPT='$GREEN⚫︎$USER $DIRECTORY$(git_prompt_info)%{$reset_color%}$SYMBOL '
+PROMPT='$GREEN$USER$DIRECTORY$(git_prompt_info)%{$reset_color%}$SYMBOL '
 RPROMPT="%t"
 
 # Git info
