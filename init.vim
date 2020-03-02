@@ -60,7 +60,6 @@ set number relativenumber
 " set list characters
 " (characters that represent tabs, EOL, and whitespace)
 set list
-set listchars=tab:\^\
 
 " Split new windows right
 set splitright
