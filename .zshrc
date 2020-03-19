@@ -105,7 +105,7 @@ function nvim_dir {
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias lsa="ls -Ap"
-alias lsd="ls -lAp"
+alias lsd="ls -lAptr"
 alias vi="nvim_dir"
 alias py="python3.8"
 alias viconf="vi ~/.config/nvim/init.vim"
