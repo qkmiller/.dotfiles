@@ -64,7 +64,7 @@ set splitright
 inoremap jj <ESC>
 
 " Remap semi-colon to colon:
-map ; :
+"map ; :
 
 " Indentation adjust
 vnoremap < <gv
