@@ -85,6 +85,17 @@ endfun
 
 autocmd BufWritePre * call TrimWhitespace()
 
+" Detect opening/closing brackets and insert new line between them
+fun! DetectBrackets()
+  if matchstr("}{)(", getline(".")[col(".")-1] . getline(".")[col(".")-2]) != ""
+    return "\<CR>\<Esc>O"
+  else
+    return "\<CR>"
+  endif
+endfun
+
+inoremap <expr> <CR> DetectBrackets()
+
 " Golang syntax highlighting
 let g:go_highlight_structs = 1
 let g:go_highlight_methods = 1
