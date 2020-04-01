@@ -9,7 +9,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Enable indent guides
@@ -128,10 +127,10 @@ nmap ++ <plug>NERDCommenterToggle
 " Turns off auto comment on new lines
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-    " Coc settings
+" Coc settings
 "=========================
 
-" if hidden is not set, TextEdit might fail.
+" If hidden is not set, TextEdit might fail.
 set hidden
 
 " Some servers have issues with backup files, see #649
@@ -144,12 +143,13 @@ set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
-" don't give |ins-completion-menu| messages.
+" Don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" always show signcolumns
+" Always show signcolumns
 set signcolumn=yes
 
+" COC extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -160,7 +160,6 @@ let g:coc_global_extensions = [
   \ ]
 
 " Use tab to trigger completion, completion confirm, snippet expand and jump
-" like VSCode
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
