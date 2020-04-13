@@ -33,8 +33,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Bind Alt-j and Alt-k to move lines up and down.
-" <A-j> and <A-k> are replaced with ∆ and ˚ for mac keyboards...
+" Bind Shift-J and Shift-K to move lines up and down.
 nnoremap J :m .+1<CR>==
 nnoremap K :m .-2<CR>==
 vnoremap J :m '>+1<CR>gv=gv
