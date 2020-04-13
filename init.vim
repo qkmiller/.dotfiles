@@ -35,12 +35,10 @@ map <C-l> <C-W>l
 
 " Bind Alt-j and Alt-k to move lines up and down.
 " <A-j> and <A-k> are replaced with ∆ and ˚ for mac keyboards...
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gv
+nnoremap J :m .+1<CR>==
+nnoremap K :m .-2<CR>==
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Tabs
 set tabstop=2
