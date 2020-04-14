@@ -84,7 +84,7 @@ autocmd BufWritePre * call TrimWhitespace()
 " Detect opening/closing brackets and insert new line between them
 fun! DetectBrackets()
   if matchstr("}{)(", getline(".")[col(".")-1] . getline(".")[col(".")-2]) != ""
-    return "\<CR>\<Esc>O"
+    return "\<CR>\<Esc>O\<Tab>"
   else
     return "\<CR>"
   endif
