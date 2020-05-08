@@ -7,51 +7,56 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'branch': 'master' }
 Plug 'exu/pgsql.vim'
-Plug 'reini-1/vim-code-darker'
+Plug 'tomasiser/vim-code-dark'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 call plug#end()
 
 
-" =========================
-" == Color/visual tweaks ==
-" =========================
+" ===========================
+" == Color/visual settings ==
+" ===========================
+
+" Terminal colors
+set termguicolors
+set t_Co=256
 
 " Colorscheme
-colorscheme codedarker
+colorscheme codedark
 
-" Set terminal colors
-set termguicolors
+" Change background to pure black
+hi Normal guibg=black
+hi nonText guibg=black
+hi EndOfBuffer guibg=black
 
-" Change color of statusline per mode
-function! InsertStatuslineColor(mode)
-  if a:mode == 'i'
-    hi statusline guibg=green guifg=black
-  elseif a:mode == 'r'
-    hi statusline guibg=magenta guifg=white
-  else
-    hi statusline guibg=red guifg=white
-  endif
-endfunction
+" Highlight line under cursor
+set cursorline
 
-hi statusline guibg=blue guifg=white
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertChange * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline guibg=blue guifg=white
+" Set default statusline color
+hi statusline guibg=grey guifg=black
 
-" Change satusline info
-set statusline=\ %1*%M%*
+" Statusline left-aligned items
+set statusline=\ %1*%r%*
+set statusline+=\ %1*%M%*
 set statusline+=\ %f
 set statusline+=\ \ %P
 set statusline+=\ \ %y
+
+" Statusline separator between left-aligned and right-aligned items
 set statusline+=%=
+
+" Statusline right-aligned items
 set statusline+=0x%B\ "
 
 " Statusline color group for 'Modified'
 hi User1 guifg=white guibg=red
 
-" Golang syntax highlighting
+" Change color of statusline while in insert mode
+au InsertEnter * hi statusline guibg=blue guifg=white
+au InsertLeave * hi statusline guibg=grey guifg=black
+
+" Go syntax highlighting
 let g:go_highlight_structs = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
@@ -61,7 +66,7 @@ let g:go_highlight_variable_assignments = 1
 let g:go_highlight_build_constraints = 1
 let g:go_mod_fmt_autosave = 1
 
-" SQL syntax highlighting
+" PostgreSQL syntax highlighting
 let g:sql_type_default = 'pgsql'
 
 
@@ -76,8 +81,9 @@ set clipboard=unnamed
 set undofile
 set undodir=~/.vim/tmp/undo
 
-" Tabs
+" Tab settings
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 
@@ -105,13 +111,13 @@ endfun
 
 autocmd BufWritePre * call TrimWhitespace()
 
-" NERDTree start when opening directories
+" Start NERDTree when opening directories
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | wincmd p | endif
 
 let NERDTreeShowHidden=1
 
-" Detect opening/closing brackets/parentheses and insert new line between them (Use with COC)
+" Detect opening/closing brackets/parentheses. Pressing 'Enter' places cursor in new line between them (Use with COC)
 fun! DetectBrackets()
   if matchstr("}{)(", getline(".")[col(".")-1] . getline(".")[col(".")-2]) != ""
     return "\<CR>\<Esc>O\<Tab>"
@@ -120,7 +126,7 @@ fun! DetectBrackets()
   endif
 endfun
 
-" Detect opening bracket only and create a new line with an ending bracket (Use without COC)
+" Detect opening bracket only. Pressing 'Enter' creates a closing bracket on a new line and places the cursor in another new line above it. (Use without COC)
 fun! DetectOpenBracket()
   if matchstr("{", getline(".")[col(".")-1] . getline(".")[col(".")-2]) != ""
     return "\<CR>}\<Esc>O"
@@ -170,3 +176,4 @@ map <C-n> :NERDTreeToggle<CR>
 " NERDCommenter shortcuts
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
