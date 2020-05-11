@@ -1,9 +1,17 @@
 #!/bin/bash
 
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/hl1.zsh-theme ~/.oh-my-zsh/themes/hl1.zsh-theme
-ln -s ~/.dotfiles/hl2.zsh-theme ~/.oh-my-zsh/themes/hl2.zsh-theme
-ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
+# Install plug.vim
+#curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    #https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-#Orinal font name is Droid Sans Mono for Powerline
-ln -s ~/.dotfiles/font.otf ~/Library/Fonts/Droid\ Sans\ Mono\ for\ Powerline.otf
+# Creat dirs
+mkdir -p ~/.vim
+
+# Create links
+if [ $SHELL != "/usr/bin/bash" ]; then
+  ln -s ./.zshrc ~/.zshrc
+else
+  ln -s ./.bashrc ~/.bashrc
+fi
+ln -s .vimrc ~/.vim/vimrc
+
