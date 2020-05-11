@@ -198,11 +198,7 @@ vnoremap < <gv
 vnoremap > >gv
 " Auto create/format brackets
 inoremap {<CR> {<CR>}<Esc>O
-inoremap { {  }<Esc>hi
 inoremap [<CR> [<CR>]<Esc>O
-inoremap [ []<Esc>i
-inoremap ( ()<Esc>i
-inoremap ( ()<Esc>i
 " Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " Comment lines/blocks
