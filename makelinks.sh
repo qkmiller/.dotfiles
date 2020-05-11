@@ -8,10 +8,13 @@
 mkdir -p ~/.vim
 
 # Create links
+ln .vimrc ~/.vim/vimrc
 if [ $SHELL != "/usr/bin/bash" ]; then
-  ln -s ./.zshrc ~/.zshrc
+  ln ~/dotfiles/.zshrc ~/.zshrc
 else
-  ln -s ./.bashrc ~/.bashrc
+  ln ~/dotfiles/.bashrc ~/.bashrc
 fi
-ln -s .vimrc ~/.vim/vimrc
+if [ `uname | grep MINGW` != "" ]; then
+  ln ~/dotfiles/git-prompt.sh ~/.config/git/git-prompt.sh
+fi
 
