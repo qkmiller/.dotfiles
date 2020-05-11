@@ -8,6 +8,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-syntastic/syntastic'
+Plug 'octol/vim-cpp-enhanced-highlight', {
+      \ 'for': 'cpp' }
 Plug 'fatih/vim-go', {
       \ 'for': 'go',
       \ 'do': ':GoUpdateBinaries',
