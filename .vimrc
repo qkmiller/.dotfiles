@@ -71,7 +71,9 @@ set statusline+=%1*%M%*
 set statusline+=\ "
 set statusline+=%f
 set statusline+=\ \ "
-set statusline+=%P "
+set statusline+=%l\  "
+set statusline+=/
+set statusline+=\ %L "
 set statusline+=\ \ "
 set statusline+=%y
 set statusline+=%=
@@ -182,10 +184,10 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 " Shift-J and Shift-K to move lines up and down
-nnoremap J :m .+1<CR>==
-nnoremap K :m .-2<CR>==
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+"nnoremap J :m .+1<CR>==
+"nnoremap K :m .-2<CR>==
+"vnoremap J :m '>+1<CR>gv=gv
+"vnoremap K :m '<-2<CR>gv=gv
 " Enter creates new line in normal mode
 nnoremap <CR> o<ESC>
 " Ignore case when saving with :w or :wq
