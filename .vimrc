@@ -259,12 +259,24 @@ endfun
 " If a directory is opened and a session exists, save it before closing
 fun! SaveSession()
   execute('NERDTreeClose')
-  if (isdirectory(argv()[0])
+  if (argc() == 1 && isdirectory(argv()[0])
         \ && winnr("$") > 1
         \ && findfile('Session.vim') == 'Session.vim')
     mksession!
   endif
 endfun
+
+fun! CreateSnippet(snippet, prompt)
+  let old_line_count = line('$')
+  silent call inputsave()
+  let name = input(a:prompt)
+  silent call inputrestore()
+  execute('0read ~/.vim/snippets/' . a:snippet)
+  let snippet_line_count = line('$') - old_line_count
+  execute('.,+' . snippet_line_count . 's/' . a:snippet . '/' . name)
+  return ''
+endfun
+
 
 augroup vimrc_editing
   autocmd BufEnter * call NERDTreeAutoClose()
@@ -322,3 +334,5 @@ inoremap {<CR> {<CR>}<Esc>O
 inoremap [<CR> [<CR>]<Esc>O
 inoremap (<CR> (<CR>)<Esc>O
 inoreabbrev DATETIME <C-R>=strftime("%c")<CR>
+inoreabbrev REACTCOMPONENT <C-R>=CreateSnippet('ReactComponent', 'Name: ')
+      \<CR><Esc>{{i<Tab><Tab><Tab>
