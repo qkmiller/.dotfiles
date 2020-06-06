@@ -1,0 +1,98 @@
+{
+    "window.zoomLevel": 0,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "editor.fontSize": 18,
+    "C_Cpp.clang_format_style": "Google",
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "<Tab>"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "="
+            ],
+            "after": [
+                "g",
+                "g",
+                "=",
+                "G",
+                "<C-o>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "v"
+            ],
+            "commands": [
+                "workbench.action.toggleEditorGroupLayout",
+                "workbench.action.focusLastEditorGroup"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "after": [
+                "<C-w>",
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "after": [
+                "<C-w>",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<C-w>",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "after": [
+                "<C-w>",
+                "l"
+            ]
+        },
+    ],
+    "editor.minimap.enabled": false,
+    "workbench.list.automaticKeyboardNavigation": false,
+    "workbench.list.keyboardNavigation": "filter",
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 20,
+    "workbench.editor.labelFormat": "medium",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.enableExperiments": false,
+    "update.mode": "manual",
+    "extensions.autoCheckUpdates": false,
+    "telemetry.enableTelemetry": false,
+    "update.showReleaseNotes": false,
+    "extensions.autoUpdate": false,
+    "editor.accessibilitySupport": "off",
+    "editor.lineNumbers": "relative",
+    "editor.roundedSelection": false,
+    "editor.scrollBeyondLastLine": false,
+    "editor.smoothScrolling": true,
+    "search.smartCase": true,
+    "editor.tabCompletion": "on",
+}

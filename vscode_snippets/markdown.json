@@ -1,0 +1,29 @@
+{
+	"Readme template": {
+		"prefix": "README",
+		"body": [
+			"# ${0:Title}",
+			"",
+			"#### By Quinn Miller",
+			"#### $CURRENT_MONTH/$CURRENT_DATE/$CURRENT_YEAR",
+			"",
+			"## Project Description",
+			"",
+			"<!-- ![Description of image](./_assets/<FILENAME>.png) -->",
+			"",
+			"## Setup/Installation Requirements",
+			"",
+			"## Support",
+			"",
+			"Feel free to make an issue or a pull request!",
+			"",
+			"#### License",
+			"",
+			"*Copyright (c) $CURRENT_YEAR Quinn Miller*",
+			"",
+			"Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is furnished\nto do so, subject to the following conditions: The above copyright notice and\nthis permission notice shall be included in all copies or substantial portions\nof the Software.",
+			"",
+			"THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS\nOR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+		]
+	}
+}
