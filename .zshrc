@@ -134,4 +134,4 @@ export GOBIN="$HOME/go/bin"
 export PATH=$GITFILTERREPO:$GOBIN:$GOPATH:$PATH:$HOME/bin:$SBIN
 
 print -P "$FG[208]"
-zsh ./.dotfiles/blackmesa.zsh
+zsh ~/.dotfiles/blackmesa.zsh
