@@ -1,14 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/quinnmiller/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Path to GOxxxxxxx
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="theme"
+ZSH_THEME="hl2"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -111,7 +111,7 @@ alias py="python3.8"
 alias viconf="vi ~/.config/nvim/init.vim"
 
 # Enable vi mode in terminal
-set -o vi
+#set -o vi
 
 # Somthing for fuzzyfinder...
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -127,8 +127,34 @@ export DOTS=~"/.dotfiles"
 
 # Path export vars...
 export SBIN="/usr/local/sbin"
-export GITFILTERREPO="/Users/quinnmiller/bin/git-filter-repo"
+export GITFILTERREPO="$HOME/bin/git-filter-repo"
 export GOROOT="/usr/local/go"
-export GOPATH="/Users/quinnmiller/go"
-export GOBIN="/Users/quinnmiller/go/bin"
+export GOPATH="$HOME/go"
+export GOBIN="$HOME/go/bin"
 export PATH=$GITFILTERREPO:$GOBIN:$GOPATH:$PATH:$HOME/bin:$SBIN
+
+#print -P "$FG[208]$BG[238]"
+print -P "$FG[208]"
+echo " ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣤⣤⣴⣦⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀"⠀
+echo " ⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⠿⠿⠿⠿⣿⣿⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀"⠀
+echo " ⠀⠀⠀⠀⣠⣾⣿⣿⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣿⣶⡀⠀⠀⠀"⠀
+echo " ⠀⠀⠀⣴⣿⣿⠟⠁⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣦⠀⠀"⠀
+echo " ⠀⠀⣼⣿⣿⠋⠀⠀⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣧⠀"⠀
+echo " ⠀⢸⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇"⠀
+echo " ⠀⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿"⠀
+echo " ⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⣹⣿⣿"⠀
+echo " ⠀⣿⣿⣷⠀⠀⠀⠀⠀⠀⣰⣿⣿⠏⠀⠀⢻⣿⣿⡄⠀⠀⠀⠀⠀⠀⣿⣿⡿"⠀
+echo " ⠀⢸⣿⣿⡆⠀⠀⠀⠀⣴⣿⡿⠃⠀⠀⠀⠈⢿⣿⣷⣤⣤⡆⠀⠀⣰⣿⣿⠇"⠀
+echo " ⠀⠀⢻⣿⣿⣄⠀⠀⠾⠿⠿⠁⠀⠀⠀⠀⠀⠘⣿⣿⡿⠿⠛⠀⣰⣿⣿⡟⠀  BLACK MESA RESEARCH FACILITY"⠀
+echo " ⠀⠀⠀⠻⣿⣿⣧⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⠏⠀⠀  $(date)"⠀
+echo " ⠀⠀⠀⠀⠈⠻⣿⣿⣷⣤⣄⡀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⠟⠁⠀⠀⠀"⠀
+echo " ⠀⠀⠀⠀⠀⠀⠈⠛⠿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⠁⠀⠀⠀⠀⠀    "⠀
+echo " ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠛⠛⠛⠛⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ A reminder to all Black Mesa personnel."
+echo "    Regular radiation and biohazard screenings are a requirement of continued"
+echo " employment in the Black Mesa Research Facility. Missing a scheduled urinalysis"
+echo "  or radiation check-up is grounds for immediate termination. If you feel you"
+echo "  have been exposed to radioactive or other hazardous materials in the course"
+echo "    of your duties, contact your radiation safety officer immediately."
+echo "              Work safe, work smart. Your future depends on it."
+echo "................................................................................"
+#./blackmesa.sh
