@@ -192,7 +192,7 @@ augroup end
 " Editing Behavior / Miscellaneous Settings
 " =========================================
 set autoread
-set clipboard=unnamed
+set clipboard+=unnamed,unnamedplus
 set completeopt=menu,preview
 set hidden
 set lazyredraw
