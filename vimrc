@@ -29,14 +29,10 @@ Plug 'fatih/vim-go', {
       \ 'branch': 'master'}
 Plug 'exu/pgsql.vim', {
       \ 'for': 'sql' }
-"Plug 'yuezk/vim-js', {
-      "\ 'for': ['javascript', 'jsx']}
 Plug 'pangloss/vim-javascript', {
       \ 'for': ['javascript', 'jsx']}
 Plug 'maxmellon/vim-jsx-pretty', {
       \ 'for': ['javascript', 'jsx']}
-"Plug 'dense-analysis/ale', {
-      "\ 'for': ['javascript', 'jsx']}
 call plug#end()
 
 
@@ -147,7 +143,7 @@ let g:syntastic_jsx_eslint_exec = 'node_modules/.bin/eslint'
 " Minimizes the syntastic popup window
 function! SyntasticCheckHook(errors)
     if !empty(a:errors)
-        let g:syntastic_loc_list_height = min([len(a:errors), 10])
+        let g:syntastic_loc_list_height = min([len(a:errors) + 1, 10])
     endif
 endfunction
 
