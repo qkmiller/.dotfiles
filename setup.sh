@@ -11,3 +11,6 @@ ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/hl2.zsh-theme ~/.oh-my-zsh/themes/hl2.zsh-theme
 ln -s ~/dotfiles/vimrc ~/.vim/vimrc
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
+
+# Make vim undo directory
+mkdir -p ~/.vim/tmp/undo
