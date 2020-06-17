@@ -1,0 +1,14 @@
+[user]
+        name = Quinn Miller
+        email = ***REMOVED***
+        username = quinnrobepicodus
+[github]
+        user = quinnrobepicodus
+[core]
+        editor = vim
+        tool = vimdiff
+[diff]
+        tool = vimdiff
+[difftool]
+        prompt = false
+
