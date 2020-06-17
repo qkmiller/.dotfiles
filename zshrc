@@ -90,31 +90,20 @@ source $ZSH/oh-my-zsh.sh
 
 # Functions
 
-# If a directory is opened in vim, cd into the directory
-function nvim_dir {
-  if [ -d $1 ] && [ $1 ]; then
-    cd $1
-    nvim ../${PWD##*/}
-  else
-    nvim $1
-  fi
-}
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias lsa="ls -Ap"
 alias lsd="ls -lAptr"
-alias vi="nvim_dir"
+alias vi="vim"
 alias py="python3.8"
-alias viconf="vi ~/.config/nvim/init.vim"
 
 # Enable vi mode in terminal
 #set -o vi
 
 # Somthing for fuzzyfinder...
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set default editor for git
 export GIT_EDITOR=nvim
@@ -123,15 +112,15 @@ export GIT_EDITOR=nvim
 # export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Export dotfiles folder
-export DOTS=~"/.dotfiles"
+export DOTS=~"/dotfiles"
 
 # Path export vars...
-export SBIN="/usr/local/sbin"
-export GITFILTERREPO="$HOME/bin/git-filter-repo"
-export GOROOT="/usr/local/go"
-export GOPATH="$HOME/go"
-export GOBIN="$HOME/go/bin"
-export PATH=$GITFILTERREPO:$GOBIN:$GOPATH:$PATH:$HOME/bin:$SBIN
+#export SBIN="/usr/local/sbin"
+#export GITFILTERREPO="$HOME/bin/git-filter-repo"
+#export GOROOT="/usr/local/go"
+#export GOPATH="$HOME/go"
+#export GOBIN="$HOME/go/bin"
+#export PATH=$GITFILTERREPO:$GOBIN:$GOPATH:$PATH:$HOME/bin:$SBIN
 
 print -P "$FG[208]"
-zsh ~/.dotfiles/blackmesa.zsh
+zsh ~/dotfiles/blackmesa.zsh

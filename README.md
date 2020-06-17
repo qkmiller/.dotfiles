@@ -1,3 +1,4 @@
 # Dot Files
+## These are my configuration files for the programs I use.
 
-Various configuration files. Running makelinks.sh will create symlinks to each file in their expected locations.
+Running setup.sh will install vim-plug, oh-my-zsh, and will symlink each config file to their expected locations.
