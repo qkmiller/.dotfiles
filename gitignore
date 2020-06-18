@@ -1,0 +1,14 @@
+# C++
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.so.*
+*.dll
+*.dylib
+
+# Javascript
+node_modules
