@@ -1,8 +1,8 @@
 # Dot Files
 
-### These are my configuration files for Vim, Zsh, VScode and other various programs related to coding.
+### Various configuration files for Vim, Zsh and other programs related to coding.
 
-To quickly install these files, you can run one of the setup scripts in your terminal.
+To quickly install these files, you can run one of the included setup scripts via your terminal.
 
 Example:
 ```console
