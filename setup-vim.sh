@@ -3,7 +3,7 @@
 # Make vim undo directory
 mkdir -p ~/.vim/tmp/undo
 
-ln -s ~/dotfiles/vimrc ~/.vim/vimrc
+ln -s ~/dotfiles/vim/vimrc ~/.vim/vimrc
 
 # Install vim plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
