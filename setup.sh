@@ -9,7 +9,6 @@ mkdir -p ~/.oh-my-zsh/themes
 # Create symlinks
 ln -s ~/dotfiles/zsh/hl2.zsh-theme ~/.oh-my-zsh/themes/hl2.zsh-theme
 ln -s ~/dotfiles/vim/vimrc ~/.vim/vimrc
-ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/gitignore ~/.gitignore_global
 
 # Install vim plug
@@ -24,3 +23,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Overwrite the default zshrc with mine
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
+
+# Add git config settings to global config
+git config --global include.path "~/dotfiles/git/git/gitconfig"
