@@ -16,6 +16,9 @@ ln -s ~/dotfiles/gitignore ~/.gitignore_global
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Install vim plugins
+vim +PlugInstall +qall
+
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
