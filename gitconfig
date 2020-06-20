@@ -1,14 +1,15 @@
 [user]
-        name = Quinn Miller
-        email = ***REMOVED***
-        username = quinnrobepicodus
+  name = Quinn Miller
+  email = ***REMOVED***
+  username = quinnrobepicodus
 [github]
-        user = quinnrobepicodus
+  user = quinnrobepicodus
 [core]
-        editor = vim
-        tool = vimdiff
+  editor = vim
+  tool = vimdiff
+  excludesfile = ~/.gitignore_global
 [diff]
-        tool = vimdiff
+  tool = vimdiff
 [difftool]
-        prompt = false
+  prompt = false
 

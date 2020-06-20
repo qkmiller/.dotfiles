@@ -1,4 +1,6 @@
 # C++
+*.out
+*.exe
 *.slo
 *.lo
 *.o
@@ -12,3 +14,4 @@
 
 # Javascript
 node_modules
+*.env
