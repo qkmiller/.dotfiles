@@ -14,7 +14,7 @@ USER="%{$FG[$GREY]%}%B%n%b%{$reset_color%}"
 
 # Prompt
 PROMPT='%{$FG[$HLORANGE]%}╭─$USER$DIRECTORY$(git_prompt_info)
-%{$FG[$HLORANGE]%}╰─$LAMDA %{$FG[$WHITE]%}'
+%{$FG[$HLORANGE]%}╰─ $LAMDA %{$FG[$WHITE]%}'
 RPROMPT="%t"
 
 # Git info
