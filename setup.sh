@@ -25,4 +25,4 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
 # Add git config settings to global config
-git config --global include.path "~/dotfiles/git/git/gitconfig"
+git config --global include.path "~/dotfiles/git/gitconfig"
