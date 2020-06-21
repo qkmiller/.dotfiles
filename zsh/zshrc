@@ -106,21 +106,18 @@ alias py="python3.8"
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set default editor for git
-export GIT_EDITOR=nvim
+export GIT_EDITOR=vim
 
 # Enable true color support for NeoVim
 # export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-# Export dotfiles folder
-export DOTS=~"/dotfiles"
-
 # Path export vars...
 #export SBIN="/usr/local/sbin"
-#export GITFILTERREPO="$HOME/bin/git-filter-repo"
 #export GOROOT="/usr/local/go"
 #export GOPATH="$HOME/go"
 #export GOBIN="$HOME/go/bin"
-#export PATH=$GITFILTERREPO:$GOBIN:$GOPATH:$PATH:$HOME/bin:$SBIN
+#export PATH=$GOBIN:$GOPATH:$PATH:$HOME/bin:$SBIN
+export PATH=$PATH:$HOME/.local/bin
 
 print -P "$FG[208]"
-zsh ~/dotfiles/blackmesa.zsh
+zsh ~/dotfiles/zsh/blackmesa.zsh
