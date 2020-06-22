@@ -4,6 +4,7 @@
 mkdir -p ~/.vim/tmp/undo
 
 ln -s ~/dotfiles/vim/vimrc ~/.vim/vimrc
+ln -s ~/dotfiles/vim/snippets ~/.vim/snippets
 
 # Install vim plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
