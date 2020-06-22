@@ -15,3 +15,4 @@
 # Javascript
 node_modules
 *.env
+deploy.sh
