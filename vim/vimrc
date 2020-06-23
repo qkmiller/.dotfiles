@@ -316,7 +316,7 @@ endfun
 fun! IndentTags()
   if (matchstr('<', getline('.')[col('.') - 1]) != ''
         \ && matchstr('>', getline('.')[col('.') - 2]) != '')
-    return "\<CR>\<Esc>O\<Tab>"
+    return "\<CR>\<Esc>O"
   else
     return "\<CR>"
   endif
