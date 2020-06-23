@@ -1,20 +1,21 @@
 HLORANGE=208
-GREY=241
+GREY=240
 WHITE=255
-PINK=207
+GREEN=154
+PINK=165
 RED=196
 
 LAMDA="%{$FG[$HLORANGE]%}λ"
 
 # Working directory
-DIRECTORY="%{$FG[$HLORANGE]%}%B%~/%b"
+DIRECTORY="%{$FG[$GREY]%}%B%~/%b"
 
 # Username
-USER="%{$FG[$GREY]%}%B%n%b%{$reset_color%}"
+USER="%{$FG[$HLORANGE]%}%B%n%b%{$reset_color%}"
 
 # Prompt
-PROMPT='%{$FG[$HLORANGE]%}╭─$USER$DIRECTORY$(git_prompt_info)
-%{$FG[$HLORANGE]%}╰─ $LAMDA %{$FG[$WHITE]%}'
+PROMPT='$USER%{$FG[$WHITE]%} $DIRECTORY$(git_prompt_info)
+ $LAMDA %{$FG[$WHITE]%}'
 RPROMPT="%t"
 
 # Git info
