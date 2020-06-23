@@ -1,4 +1,5 @@
 import React from 'react';
+import './ReactComponent.js.css';
 
 function ReactComponent.js() {
   return (
