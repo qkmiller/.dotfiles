@@ -367,9 +367,9 @@ command WQ wq
 command Wq wq
 command Vimrc tabnew ~/.vim/vimrc
 command HTML call CreateSnippet('boilerplate.html', '')
-"command ReactComponent call CreateSnippet('ReactComponent', 'Name: ')
-      "\| call execute('normal {{i<Tab><Tab><Tab>')
-      "\| startinsert!
+command ReactComponent call CreateSnippet('ReactComponent.js', 'Name: ')
+      \| call execute('normal {{i<Tab><Tab><Tab>')
+      \| startinsert!
 
 " Visual mode
 vnoremap < <gv
