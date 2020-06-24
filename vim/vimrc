@@ -200,6 +200,7 @@ set number relativenumber
 set scrolloff=10
 set spelllang=en_us
 set splitright splitbelow
+set ttimeoutlen=100
 set undofile undodir=~/.vim/tmp/undo
 set wildignore=*.o,*.obj,*.swp,node_modules,.git,*.exe
 set wildmenu wildmode=longest,full:list
@@ -337,9 +338,9 @@ let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
 
 "Normal mode
+nnoremap <Tab> :NERDTreeFocus<CR>
+nnoremap <S-Tab> :NERDTreeToggle<CR><C-W>=
 nnoremap <Space> <nop>
-nnoremap <leader><CR> o<Esc>
-nnoremap <silent> <leader><Tab> :NERDTreeToggle<CR><C-W>=
 nnoremap <silent> <leader>` :call ToggleNotes()<CR>
 nnoremap <leader>= gg=G2<C-O>
 nnoremap <silent> <leader>t :wincmd b \| bel term<CR>git status<CR>
@@ -367,6 +368,8 @@ command WQ wq
 command Wq wq
 command Vimrc tabnew ~/.vim/vimrc
 command HTML call CreateSnippet('boilerplate.html', '')
+      \| call execute('normal 4j11l')
+      \| startinsert!
 command ReactComponent call CreateSnippet('ReactComponent.js', 'Name: ')
       \| call execute('normal {{i<Tab><Tab><Tab>')
       \| startinsert!
@@ -389,4 +392,3 @@ inoreabbrev LOREMIPSUM Lorem ipsum dolor sit amet, consectetur adipiscing
       \ in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
       \ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
       \ qui officia deserunt mollit anim id est laborum."
-
