@@ -155,7 +155,8 @@ endfun
 
 fun! CPPFormatSettings()
   setlocal equalprg=clang-format\ -style=google
-  setlocal makeprg=mingw32-make.exe
+  "setlocal makeprg=mingw32-make.exe
+  setlocal makeprg=make
   let g:syntastic_cpp_compiler_options='-std=c++11'
 endfun
 
