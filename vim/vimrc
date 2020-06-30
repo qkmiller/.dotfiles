@@ -46,7 +46,6 @@ endif
 set background=dark
 colorscheme codedark
 set cursorline
-set hlsearch
 
 hi Comment cterm=italic gui=italic
 hi Pmenu gui=NONE guibg=grey guifg=black
