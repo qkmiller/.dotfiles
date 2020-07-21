@@ -119,5 +119,5 @@ export GIT_EDITOR=vim
 #export PATH=$GOBIN:$GOPATH:$PATH:$HOME/bin:$SBIN
 export PATH=$PATH:$HOME/.local/bin
 
-print -P "$FG[208]"
+print -P "$FG[208]$(date)"
 zsh ~/dotfiles/zsh/blackmesa.zsh

@@ -11,7 +11,7 @@ LAMDA="%{$FG[$HLORANGE]%}λ"
 DIRECTORY="%{$FG[$GREY]%}%B%~/%b"
 
 # Username
-USER="%{$FG[$HLORANGE]%}%B%n%b%{$reset_color%}"
+USER="%{$FG[$HLORANGE]%}%B%n@%M"
 
 # Prompt
 PROMPT='$USER%{$FG[$WHITE]%} $DIRECTORY$(git_prompt_info)
