@@ -110,10 +110,7 @@ alias vi="vim"
 alias py="python3.8"
 
 # Enable vi mode in terminal
-#set -o vi
-
-# Enable vi mode in terminal
-#set -o vi
+set -o vi
 
 # Somthing for fuzzyfinder...
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -129,7 +126,7 @@ export GIT_EDITOR=vim
 #export gopath="$home/go"
 #export gobin="$home/go/bin"
 #export path=$gobin:$gopath:$path:$home/bin:$sbin
-export path=$path:$home/.local/bin
+export PATH="$PATH:$home/.local/bin"
 
-print -p "$fg[208]$(date)"
-zsh ~/dotfiles/zsh/blackmesa.zsh
+#echo "$FG[208]$(date)"
+#zsh ~/dotfiles/zsh/blackmesa.zsh

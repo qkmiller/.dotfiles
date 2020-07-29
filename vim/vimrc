@@ -11,9 +11,9 @@
 "      ░                            ░
 
 
-" ==============================================================================
+" ===================================================================
 " Plugins (Vim-plug)
-" ==============================================================================
+" ===================================================================
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -36,9 +36,9 @@ Plug 'maxmellon/vim-jsx-pretty', {
 call plug#end()
 
 
-" ==============================================================================
+" ===================================================================
 " Color Settings
-" ==============================================================================
+" ===================================================================
 if has('termguicolors')
   set termguicolors
 endif
@@ -109,9 +109,9 @@ augroup vimrc_window
 augroup end
 
 
-" ==============================================================================
+" ===================================================================
 " Statusline
-" ==============================================================================
+" ===================================================================
 set statusline=%f\ "
 set statusline+=%r
 set statusline+=%=
@@ -123,9 +123,9 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 
-" ==============================================================================
+" ===================================================================
 " Formatting
-" ==============================================================================
+" ===================================================================
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -154,7 +154,6 @@ endfun
 
 fun! CPPFormatSettings()
   setlocal equalprg=clang-format\ -style=google
-  "setlocal makeprg=mingw32-make.exe
   setlocal makeprg=make
   let g:syntastic_cpp_compiler_options='-std=c++11'
 endfun
@@ -184,15 +183,15 @@ augroup vimrc_formatting
 augroup end
 
 
-" =========================================
+" ===================================================================
 " Editing Behavior / Miscellaneous Settings
-" =========================================
+" ===================================================================
 set autoread
 set clipboard+=unnamed,unnamedplus
 set completeopt=menu,preview
 set hidden
 set lazyredraw
-set linebreak breakindent breakat=\ ^I!@*-+;:,./?(){}[]\\" showbreak=!>>>
+" set linebreak breakindent breakat=\ ^I!@*-+;:,./?(){}[]\\" showbreak=!>>>
 set noincsearch ignorecase smartcase
 set nomodeline modelines=0
 set noshowmatch
@@ -231,9 +230,9 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 
 
-" ============================
+" ===================================================================
 " Helper functions / variables
-" ============================
+" ===================================================================
 let g:vimrc_notes_file='~/.vim/notes.txt'
 let g:vimrc='~/.vim/vimrc'
 let g:vimrc_snippet_path='~/.vim/snippets/'
@@ -330,9 +329,9 @@ augroup vimrc_editing
 augroup end
 
 
-" ==============================================================================
+" ===================================================================
 " Keymaps / Commands / Abbreviations:
-" ==============================================================================
+" ===================================================================
 let mapleader=" "
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
@@ -344,17 +343,6 @@ nnoremap <Space> <nop>
 nnoremap <silent> <leader>` :call ToggleNotes()<CR>
 nnoremap <leader>= gg=G2<C-O>
 nnoremap <silent> <leader>t :wincmd b \| bel term<CR>git status<CR>
-nnoremap <leader>] :bn<CR>
-nnoremap <leader>[ :bp<CR>
-nnoremap <leader>1 :b1<CR>
-nnoremap <leader>2 :b2<CR>
-nnoremap <leader>3 :b3<CR>
-nnoremap <leader>4 :b4<CR>
-nnoremap <leader>5 :b5<CR>
-nnoremap <leader>6 :b6<CR>
-nnoremap <leader>7 :b7<CR>
-nnoremap <leader>8 :b8<CR>
-nnoremap <leader>9 :b9<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -385,10 +373,3 @@ inoremap [<CR> [<CR>]<Esc>O
 inoremap (<CR> (<CR>)<Esc>O
 inoremap <expr> <CR> IndentTags()
 inoreabbrev DATETIME <C-R>=strftime("%c")<CR>
-inoreabbrev LOREMIPSUM Lorem ipsum dolor sit amet, consectetur adipiscing
-      \ elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      \ aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      \ laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-      \ in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-      \ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-      \ qui officia deserunt mollit anim id est laborum."
