@@ -6,9 +6,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # Make vim undo directory
 mkdir -p ~/.vim/tmp/undo
+
 # Make vim snippets directory
 mkdir -p ~/.vim/snippets
 
+# Make links
 ln -sf ~/dotfiles/vim/vimrc ~/.vim/vimrc
 ln -sf ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
 ln -sf ~/dotfiles/vim/snippets ~/.vim/snippets
