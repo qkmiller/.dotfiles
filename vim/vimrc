@@ -17,7 +17,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'wikitopian/hardmode'
 Plug 'vim-syntastic/syntastic'
 Plug 'tomasiser/vim-code-dark'
 Plug 'alvan/vim-closetag'
@@ -37,7 +36,7 @@ call plug#end()
 
 
 " ===================================================================
-" Color Settings
+" Color settings
 " ===================================================================
 if has('termguicolors')
   set termguicolors
@@ -103,7 +102,7 @@ augroup vimrc_insert_mode
 augroup end
 
 " Changes cursorline and statusbar when entering / leaving a window
-augroup vimrc_window
+augroup vimrc_change_statusbar
   au BufEnter * setlocal cursorline
   au BufLeave * setlocal nocursorline
 augroup end
@@ -184,7 +183,7 @@ augroup end
 
 
 " ===================================================================
-" Editing Behavior / Miscellaneous Settings
+" Editing behavior / miscellaneous settings
 " ===================================================================
 set autoread
 set clipboard+=unnamed,unnamedplus
@@ -192,6 +191,7 @@ set completeopt=menu,preview
 set hidden
 set lazyredraw
 " set linebreak breakindent breakat=\ ^I!@*-+;:,./?(){}[]\\" showbreak=!>>>
+set nowrap
 set noincsearch ignorecase smartcase
 set nomodeline modelines=0
 set noshowmatch
@@ -219,7 +219,6 @@ let g:NERDTreeHijackNetrw=0
 " Prevents Netrw from being loaded during startup
 let g:loaded_netrw=1
 
-" Closetag plugin settings
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_emptyTags_caseSensitive = 1
@@ -238,7 +237,9 @@ let g:vimrc='~/.vim/vimrc'
 let g:vimrc_snippet_path='~/.vim/snippets/'
 let g:vimrc_istoggled=0
 
-" Close NERDTree if all other buffers have been closed
+" Save the previous window title from tmux
+let g:tmuxtitle = system("tmux display-message -p '#W'")
+
 fun! NERDTreeAutoClose()
   if (winnr('$') == 1
         \ && exists('b:NERDTree'))
@@ -246,7 +247,6 @@ fun! NERDTreeAutoClose()
   endif
 endfun
 
-" Opens / closes the notes file specified in g:vimrc_notes_file
 fun! ToggleNotes()
   let win_number = bufwinnr(g:vimrc_notes_file)
   if win_number != -1
@@ -266,7 +266,7 @@ endfun
 
 " If a directory is opened, start NERDTree and set path / workspace. If a
 " session file exists, resume the session.
-fun! OpenDirectory()
+fun! DirectoryActions()
   if (argc() == 1
         \ && isdirectory(argv()[0])
         \ && !exists('s:std_in'))
@@ -284,7 +284,7 @@ fun! OpenDirectory()
 endfun
 
 " If a directory is opened and a session exists, save it before closing
-fun! SaveSession()
+fun! SaveSessionOnClose()
   execute('NERDTreeClose')
   if (argc() == 1 && isdirectory(argv()[0])
         \ && winnr("$") >= 1
@@ -311,8 +311,8 @@ fun! CreateSnippet(snippet, prompt)
   return ''
 endfun
 
-" Checks if the cursor is between two html tags and auto indents when enter is
-" pressed. Handy when used in combo with the Closetags plugin.
+" Checks if the cursor is between two html tags. If true, then it auto-indents.
+"Used in combo with the Closetags plugin.
 fun! IndentTags()
   if (matchstr('<', getline('.')[col('.') - 1]) != ''
         \ && matchstr('>', getline('.')[col('.') - 2]) != '')
@@ -322,11 +322,26 @@ fun! IndentTags()
   endif
 endfun
 
+" Resets the window of the tmux window to auto-rename itself.
+fun! ResetTmuxWindowTitle()
+  call system("tmux setw automatic-rename")
+endfun
+
+" Changes the name of the tmux window to the name of the current buffer.
+fun! UpdateTmuxWindowTitle()
+  call system("tmux rename-window 'vim:" . expand("%:t") . "'")
+endfun
+
 augroup vimrc_editing
   autocmd BufEnter * call NERDTreeAutoClose()
-  autocmd VimEnter * call OpenDirectory()
-  autocmd VimLeavePre * call SaveSession()
+  autocmd VimEnter * call DirectoryActions()
+  autocmd VimLeavePre * call SaveSessionOnClose()
 augroup end
+
+if exists('$TMUX')
+  autocmd BufEnter * call UpdateTmuxWindowTitle()
+  autocmd QuitPre * call ResetTmuxWindowTitle()
+endif
 
 
 " ===================================================================
@@ -336,38 +351,30 @@ let mapleader=" "
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
 
-"Normal mode
-nnoremap <Tab> :NERDTreeFocus<CR>
-nnoremap <S-Tab> :NERDTreeToggle<CR><C-W>=
+nnoremap <S-Tab> :NERDTreeFocus<CR>
+nnoremap <Tab> :NERDTreeToggle<CR><C-W>=
 nnoremap <Space> <nop>
 nnoremap <silent> <leader>` :call ToggleNotes()<CR>
 nnoremap <leader>= gg=G2<C-O>
-nnoremap <silent> <leader>t :wincmd b \| bel term<CR>git status<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nmap ++ <plug>NERDCommenterToggle
-
-" Command mode
 command W w
 command Q q
 command WQ wq
 command Wq wq
-command Vimrc tabnew ~/.vim/vimrc
+command Vimrc edit ~/.vim/vimrc
 command HTML call CreateSnippet('boilerplate.html', '')
       \| call execute('normal 4j11l')
       \| startinsert!
 command ReactComponent call CreateSnippet('ReactComponent.js', 'Name: ')
       \| call execute('normal {{i<Tab><Tab><Tab>')
       \| startinsert!
-
-" Visual mode
 vnoremap < <gv
 vnoremap > >gv
 vmap ++ <plug>NERDCommenterToggle
-
-" Insert mode
 inoremap {<CR> {<CR>}<Esc>O
 inoremap [<CR> [<CR>]<Esc>O
 inoremap (<CR> (<CR>)<Esc>O
