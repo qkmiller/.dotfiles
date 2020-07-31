@@ -38,9 +38,9 @@ call plug#end()
 " ===================================================================
 " Color settings
 " ===================================================================
-if has('termguicolors')
-  set termguicolors
-endif
+"if has('termguicolors')
+  "set termguicolors
+"endif
 
 set background=dark
 colorscheme codedark
