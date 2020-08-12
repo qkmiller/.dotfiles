@@ -13,38 +13,46 @@
 
 " Plugins (Vim-plug)
 " ------------------
-  call plug#begin('~/.vim/plugged')
-    Plug 'preservim/nerdtree'
-    Plug 'scrooloose/nerdcommenter'
-    "Plug 'tomasiser/vim-code-dark'
-    Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'alvan/vim-closetag'
-    Plug 'KKPMW/moonshine-vim'
-    Plug 'octol/vim-cpp-enhanced-highlight', {
-          \ 'for': 'cpp' }
-    Plug 'fatih/vim-go', {
-          \ 'for': 'go',
-          \ 'do': ':GoUpdateBinaries',
-          \ 'branch': 'master'}
-    Plug 'exu/pgsql.vim', {
-          \ 'for': 'sql' }
-    Plug 'pangloss/vim-javascript', {
-          \ 'for': ['javascript', 'jsx']}
-    Plug 'maxmellon/vim-jsx-pretty', {
-          \ 'for': ['javascript', 'jsx']}
-  call plug#end()
+    call plug#begin('~/.vim/plugged')
+      Plug 'preservim/nerdtree'
+      Plug 'scrooloose/nerdcommenter'
+      Plug 'alvan/vim-closetag'
+      Plug 'octol/vim-cpp-enhanced-highlight', {
+            \ 'for': 'cpp' }
+      Plug 'fatih/vim-go', {
+            \ 'for': 'go',
+            \ 'do': ':GoUpdateBinaries',
+            \ 'branch': 'master'}
+      Plug 'exu/pgsql.vim', {
+            \ 'for': 'sql' }
+      Plug 'pangloss/vim-javascript', {
+            \ 'for': ['javascript', 'jsx']}
+      Plug 'maxmellon/vim-jsx-pretty', {
+            \ 'for': ['jsx']}
+    call plug#end()
 
 
 " Color settings
 " --------------
     set background=dark
-    colorscheme moonshine_lowcontrast
-    hi Normal ctermbg=0
-    "hi StatusLine ctermfg=0
+    hi Normal       ctermfg=250 ctermbg=0 guifg=#bcbcbc guibg=#000000
+    hi String       ctermfg=173           guifg=#d7875f
+    hi Statement    ctermfg=176           guifg=#d787d7
+    hi Operator     ctermfg=NONE          guifg=NONE
+    hi Identifier   ctermfg=75            guifg=#5fafff
+    hi Special      ctermfg=NONE          guifg=NONE
+    hi PreProc      ctermfg=176           guifg=#d787d7
+    hi Type         ctermfg=32            guifg=#0087d7
+    hi Comment      ctermfg=65            guifg=#5f875f
+    hi Function     ctermfg=228           guifg=#ffff87
+    hi LineNr       ctermfg=243           guifg=#767676
+    hi Number       ctermfg=157           guifg=#afffaf
+    hi Label        ctermfg=32            guifg=#0087d7
+    hi Keyword      ctermfg=32            guifg=#0087d7
+    hi Conditional  ctermfg=176           guifg=#d787d7
+    hi MatchParen   ctermbg=0 ctermfg=2   guibg=#000000 guifg=#008000
+    hi Visual       ctermbg=239           guibg=#4e4e4e
 
-
-" Syntax highlighting
-" -------------------
     let g:go_highlight_build_constraints=1
     let g:go_highlight_functions=1
     let g:go_highlight_methods=1
@@ -61,9 +69,9 @@
     set statusline=\ %f\ "
     set statusline+=%r
     set statusline+=%=
-    set statusline+=\|\ %l/%L\ \|\|\ "
+    set statusline+=\ %l/%L\ \ "
     set statusline+=%v:
-    set statusline+=0x%B\ \|"
+    set statusline+=0x%B\ "
     set statusline+=%*
 
 
@@ -84,7 +92,6 @@
     fun! CPPFormatSettings()
       setlocal equalprg=clang-format\ -style=google
       setlocal makeprg=make
-      let g:syntastic_cpp_compiler_options='-std=c++11'
     endfun
 
     fun! GoFormatSettings()
@@ -108,8 +115,8 @@
     augroup end
 
 
-" Editing behavior / miscellaneous settings
-" -----------------------------------------
+" General editing behavior
+" ------------------------
     set autoread
     set clipboard+=unnamed,unnamedplus
     set completeopt=menu,preview
@@ -209,6 +216,7 @@
 
 " Session settings
 " ----------------
+    set viminfofile=$HOME/.vim/.viminfo
     set sessionoptions=buffers
           \,curdir
           \,folds
@@ -230,7 +238,7 @@
     augroup end
 
 
-" Keymaps / Commands / Abbreviations:
+" Keymaps / commands / abbreviations:
 " -----------------------------------
     let mapleader=" "
     let NERDTreeMapOpenVSplit='v'
