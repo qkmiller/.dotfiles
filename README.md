@@ -1,14 +1,16 @@
-# Dot Files
+# .dotfiles
 
-### Various configuration files for Vim, Zsh and other programs related to coding.
+### Various configuration files.
 
-To quickly install these files, you can run one of the included setup scripts via your terminal.
+To install everything, run setup.sh via your terminal.
 
 Example:
 ```console
-you@dontincludethispart:~$ bash setup.sh
+you@yourmachine:~/.dotfiles/$ bash setup.sh
 ```
 
-* Setup.sh will install everything.
-* Setup-vim.sh will install Vim-plug, symlink my vimrc, and install all the listed Vim plugins in my vimrc file.
-* Setup-git.sh will only symlink my gitconfig and gitignore files.
+If you don't want to install everything all at once, you can run the following scripts individually.
+* setup-vim.sh  -  Installs Vim-plug, symlinks vimrc to ~/.vim/vimrc, and installs vim plugins.
+* setup-tmux.sh -  Symlinks tmux_conf to ~/.tmux_conf.
+* setup-git.sh  -  Symlinks gitignore to ~/.gitignore_global and adds .dotfiles/git/gitconfig to the global git config.
+* setup-zsh.sh  -  Attempts to change the default shell to zsh. If successful, it will symlink zshrc and zshenv to ~/.zsh.

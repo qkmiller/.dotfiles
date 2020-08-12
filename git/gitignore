@@ -36,3 +36,4 @@ build
 .env.production.local
 deploy.sh
 *.swp
+*.zcompdump*
