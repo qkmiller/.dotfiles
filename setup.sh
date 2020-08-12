@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Run all setup scripts
 source ./setup-zsh.sh

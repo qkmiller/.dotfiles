@@ -19,6 +19,7 @@
     "Plug 'tomasiser/vim-code-dark'
     Plug 'rafi/awesome-vim-colorschemes'
     Plug 'alvan/vim-closetag'
+    Plug 'KKPMW/moonshine-vim'
     Plug 'octol/vim-cpp-enhanced-highlight', {
           \ 'for': 'cpp' }
     Plug 'fatih/vim-go', {
@@ -37,9 +38,9 @@
 " Color settings
 " --------------
     set background=dark
-    colorscheme apprentice
+    colorscheme moonshine_lowcontrast
     hi Normal ctermbg=0
-    hi StatusLine ctermfg=0
+    "hi StatusLine ctermfg=0
 
 
 " Syntax highlighting
