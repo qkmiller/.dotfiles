@@ -216,7 +216,9 @@
 
 " Session settings
 " ----------------
-    set viminfofile=$HOME/.vim/.viminfo
+    if (has('viminfo'))
+      set viminfofile=$HOME/.vim/.viminfo
+    endif
     set sessionoptions=buffers
           \,curdir
           \,folds
