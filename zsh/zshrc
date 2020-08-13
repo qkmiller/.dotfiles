@@ -1,15 +1,13 @@
+HISTFILE="$HOME/.zsh/.zsh_history"
+HISTSIZE=1000
+SAVEHIST=1000
+
 # Load all stock functions (from $fpath files) called below.
 autoload -U compaudit
 autoload -U compinit -d ~/.zsh/.zcompdump
 
 # Load colors
 autoload -U colors && colors
-
-# Load LSCOLORS
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-
-# Move history file
-export HISTFILE="$HOME/.zsh/zsh_history"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -27,6 +25,7 @@ set -o vi
 
 setopt multios
 setopt prompt_subst
+setopt appendhistory
 
 # Case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
