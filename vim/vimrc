@@ -11,20 +11,15 @@
 "      ░                            ░
 
 
-" Plugins (Vim-plug)
-" ------------------
+" Plugins
+" -------
     call plug#begin('~/.vim/plugged')
       Plug 'preservim/nerdtree'
-      Plug 'scrooloose/nerdcommenter'
       Plug 'alvan/vim-closetag'
+      Plug 'flazz/vim-colorschemes'
+      Plug 'atelierbram/vim-colors_atelier-schemes'
       Plug 'octol/vim-cpp-enhanced-highlight', {
             \ 'for': 'cpp' }
-      Plug 'fatih/vim-go', {
-            \ 'for': 'go',
-            \ 'do': ':GoUpdateBinaries',
-            \ 'branch': 'master'}
-      Plug 'exu/pgsql.vim', {
-            \ 'for': 'sql' }
       Plug 'pangloss/vim-javascript', {
             \ 'for': ['javascript', 'jsx']}
       Plug 'maxmellon/vim-jsx-pretty', {
@@ -32,39 +27,16 @@
     call plug#end()
 
 
-" Color settings
-" --------------
+" Color
+" -----
     set background=dark
-    hi Normal       ctermfg=250 ctermbg=0 guifg=#bcbcbc guibg=#000000
-    hi String       ctermfg=173           guifg=#d7875f
-    hi Statement    ctermfg=176           guifg=#d787d7
-    hi Operator     ctermfg=NONE          guifg=NONE
-    hi Identifier   ctermfg=75            guifg=#5fafff
-    hi Special      ctermfg=NONE          guifg=NONE
-    hi PreProc      ctermfg=176           guifg=#d787d7
-    hi Type         ctermfg=32            guifg=#0087d7
-    hi Comment      ctermfg=65            guifg=#5f875f
-    hi Function     ctermfg=228           guifg=#ffff87
-    hi LineNr       ctermfg=243           guifg=#767676
-    hi Number       ctermfg=157           guifg=#afffaf
-    hi Label        ctermfg=32            guifg=#0087d7
-    hi Keyword      ctermfg=32            guifg=#0087d7
-    hi Conditional  ctermfg=176           guifg=#d787d7
-    hi MatchParen   ctermbg=0 ctermfg=2   guibg=#000000 guifg=#008000
-    hi Visual       ctermbg=239           guibg=#4e4e4e
-
-    let g:go_highlight_build_constraints=1
-    let g:go_highlight_functions=1
-    let g:go_highlight_methods=1
-    let g:go_highlight_operators=1
-    let g:go_highlight_structs=1
-    let g:go_highlight_variable_assignments=1
-    let g:go_highlight_variable_declarations=1
-    let g:sql_type_default='pgsql'
+    colorscheme Atelier_SavannaDark
+    syntax match Method "\v\.\vs\w+\ze\("
+    hi link Method Function
 
 
-" Statusline
-" ----------
+" Status line
+" -----------
     set laststatus=2
     set statusline=\ %f\ "
     set statusline+=%r
@@ -81,7 +53,6 @@
     set softtabstop=2
     set shiftwidth=2
     set expandtab
-    let g:go_mod_fmt_autosave=1
 
     fun! TrimWhitespace()
       let l:save=winsaveview()
@@ -115,8 +86,8 @@
     augroup end
 
 
-" General editing behavior
-" ------------------------
+" Editing
+" -------
     set autoread
     set clipboard+=unnamed,unnamedplus
     set completeopt=menu,preview
@@ -133,7 +104,8 @@
     set ttimeoutlen=100
     set undofile undodir=~/.vim/tmp/undo
     set wildignore=*.o,*.obj,*.swp,node_modules,.git,*.exe
-    set wildmenu wildmode=longest,full:list
+    set wildmenu
+    set wildmode=longest,full:list
     let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
     let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
     let g:closetag_emptyTags_caseSensitive = 1
@@ -143,26 +115,16 @@
         \ }
     let g:closetag_shortcut = '>'
 
-    " Checks if the cursor is between two html tags. If true, then it auto-indents.
-    fun! IndentTags()
-      if (matchstr('<', getline('.')[col('.') - 1]) != ''
-            \ && matchstr('>', getline('.')[col('.') - 2]) != '')
-        return "\<CR>\<Esc>O"
-      else
-        return "\<CR>"
-      endif
-    endfun
+    if (has('viminfo'))
+      set viminfofile=$HOME/.vim/.viminfo
+    endif
 
 
-" NERDTree settings
-" -----------------
+" NERDTree
+" --------
     let NERDTreeRespectWildIgnore=1
     let NERDTreeShowHidden=1
-
-    " Prevents NERDTree from opening twice in some cases
     let g:NERDTreeHijackNetrw=0
-
-    " Prevents Netrw from being loaded during startup
     let g:loaded_netrw=1
 
     fun! NERDTreeAutoClose()
@@ -172,7 +134,7 @@
       endif
     endfun
 
-    fun! NERDTreeDirActions()
+    fun! NERDTreeOpenDirectory()
       if (argc() == 1
             \ && isdirectory(argv()[0])
             \ && !exists('s:std_in'))
@@ -181,22 +143,17 @@
         execute('cd ' . argv()[0])
         let &path=getcwd()
         wincmd p
-        if (findfile('Session.vim') == 'Session.vim')
-          source ./Session.vim
-          execute('NERDTreeToggle')
-          wincmd =
-        endif
       endif
     endfun
 
     augroup vimrc_nerdtree
       autocmd BufEnter * call NERDTreeAutoClose()
-      autocmd VimEnter * call NERDTreeDirActions()
+      autocmd VimEnter * call NERDTreeOpenDirectory()
     augroup end
 
 
-" TMUX integration
-" ----------------
+" TMUX
+" ----
     if exists('$TMUX')
       let g:tmuxtitle = system("tmux display-message -p '#W'")
       fun! ResetTmuxWindowTitle()
@@ -214,57 +171,20 @@
     endif
 
 
-" Session settings
-" ----------------
-    if (has('viminfo'))
-      set viminfofile=$HOME/.vim/.viminfo
-    endif
-    set sessionoptions=buffers
-          \,curdir
-          \,folds
-          \,help
-          \,localoptions
-          \,tabpages
-
-    fun! SaveSessionOnClose()
-      execute('NERDTreeClose')
-      if (argc() == 1 && isdirectory(argv()[0])
-            \ && winnr("$") >= 1
-            \ && findfile('Session.vim') == 'Session.vim')
-        mksession!
-      endif
-    endfun
-
-    augroup vimrc_session
-      autocmd VimLeavePre * call SaveSessionOnClose()
-    augroup end
-
-
-" Keymaps / commands / abbreviations:
-" -----------------------------------
-    let mapleader=" "
+" Key maps
+" --------
     let NERDTreeMapOpenVSplit='v'
     let NERDTreeMapOpenSplit='s'
     nnoremap <S-Tab> :NERDTreeFocus<CR>
     nnoremap <Tab> :NERDTreeToggle<CR><C-W>=
     nnoremap <Space> <nop>
-    nnoremap <silent> <leader>` :call ToggleNotes()<CR>
-    nnoremap <leader>= gg=G2<C-O>
-    nnoremap <C-h> <C-W>h
-    nnoremap <C-j> <C-W>j
-    nnoremap <C-k> <C-W>k
-    nnoremap <C-l> <C-W>l
-    nmap ++ <plug>NERDCommenterToggle
     command W w
     command Q q
+    command Qa qa
     command WQ wq
     command Wq wq
     command Vimrc edit ~/.vim/vimrc
-    vnoremap < <gv
-    vnoremap > >gv
-    vmap ++ <plug>NERDCommenterToggle
-    inoremap {<CR> {<CR>}<Esc>O
-    inoremap [<CR> [<CR>]<Esc>O
-    inoremap (<CR> (<CR>)<Esc>O
-    inoremap <expr> <CR> IndentTags()
     inoreabbrev DATETIME <C-R>=strftime("%c")<CR>
+    inoreabbrev DATETIME <C-R>=strftime("%c")<CR>
+    nnoremap <f4> :Next<cr>
+    nnoremap <f3> :Previous<cr>
