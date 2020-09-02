@@ -37,6 +37,6 @@ alias vi="vim"
 alias py="python3.8"
 alias diff="diff --color"
 
-PROMPT="%F{208}%B%n@%M %F{240}%B%~/%b
- %F{208}λ %F{250}"
+PROMPT="%F{166}%B%n@%M %F{240}%B%~/%b
+ %F{166}λ %F{250}"
 RPROMPT="%t"

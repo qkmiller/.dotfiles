@@ -16,7 +16,6 @@
     call plug#begin('~/.vim/plugged')
       Plug 'preservim/nerdtree'
       Plug 'alvan/vim-closetag'
-      Plug 'flazz/vim-colorschemes'
       Plug 'atelierbram/vim-colors_atelier-schemes'
       Plug 'octol/vim-cpp-enhanced-highlight', {
             \ 'for': 'cpp' }
@@ -31,20 +30,16 @@
 " -----
     set background=dark
     colorscheme Atelier_SavannaDark
-    syntax match Method "\v\.\vs\w+\ze\("
-    hi link Method Function
+    hi StatusLine term=bold,reverse ctermfg=250 ctermbg=16 guifg=#bcbcbc guibg=#000000
+    hi StatusLineNC term=reverse ctermfg=238 ctermbg=16 guifg=#444444 guibg=#000000
+    hi Visual term=reverse ctermbg=21 guibg=#0000ff ctermfg=255 guifg=#eeeeee
 
 
 " Status line
 " -----------
-    set laststatus=2
-    set statusline=\ %f\ "
-    set statusline+=%r
-    set statusline+=%=
-    set statusline+=\ %l/%L\ \ "
-    set statusline+=%v:
-    set statusline+=0x%B\ "
-    set statusline+=%*
+    set laststatus=1
+    set statusline=%f\ %r%=\ L:%l/%L\ \ \ C:%c\ \ \ 0x%B
+    set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
 
 
 " Formatting
@@ -64,7 +59,6 @@
       setlocal equalprg=clang-format\ -style=google
       setlocal makeprg=make
     endfun
-
     fun! GoFormatSettings()
       setlocal equalprg=gofmt
     endfun
@@ -93,11 +87,11 @@
     set completeopt=menu,preview
     set hidden
     set lazyredraw
-    set wrap
+    set nocompatible
     set noincsearch ignorecase smartcase
     set nomodeline modelines=0
     set noshowmatch
-    set number relativenumber
+    set number
     set scrolloff=10
     set spelllang=en_us
     set splitright splitbelow
@@ -106,6 +100,7 @@
     set wildignore=*.o,*.obj,*.swp,node_modules,.git,*.exe
     set wildmenu
     set wildmode=longest,full:list
+    set wrap
     let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
     let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
     let g:closetag_emptyTags_caseSensitive = 1
