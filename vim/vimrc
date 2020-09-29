@@ -1,185 +1,45 @@
-"  █░     ▄  ▄     ▄      ▄    ▄▄▄       ▄▄
-"  ██▒   █▓  ██▓  ███▄ ▄███▓  ▐█▀███   ▄████▄
-" ▓██░   █▒ ▓██▒ ▓██▒▀█▀ ██▒ ▓██ ▒ ██ ▒██▀  ▀
-"  ▓██  ██░▒▒██▒ ▓██▒ ▐ ▓██░ ▓██ ░▄█▓ ▒██
-"   ▒██▐█░░ ░██░ ▒██▒   ▒██  ▒██▓▀█▄▒ ▒▓█▒  ▄█▒
-"    ▒▀█░   ░██░ ▒▐█▒ ░ ░▓█▒ ░██▓ ▒██▒░ ██▓█▀ ░
-"    ░ ▐░   ░▓   ░▐▒░   ░ ▓░ ░▓▒░ ░▒▓░░ ░▒▓▒  ░
-"    ░ ░░   ▒ ░░  ▐░      ░   ░▒   ▒░  ░▒ ▒
-"      ░░   ▒ ░░  ░    ░      ░    ░ ░
-"       ░   ░          ░             ░ ░
-"      ░                            ░
+"  __     _____ __  __ ____   ____ 
+"  \ \   / /_ _|  \/  |  _ \ / ___|
+"   \ \ / / | || |\/| | |_) | |    
+"    \ V /  | || |  | |  _ <| |___ 
+"     \_/  |___|_|  |_|_| \_\\____|
 
+set background=dark
+colorscheme slate
+filetype plugin indent on
+syntax enable
 
-" Plugins
-" -------
-    call plug#begin('~/.vim/plugged')
-      Plug 'preservim/nerdtree'
-      Plug 'alvan/vim-closetag'
-      Plug 'atelierbram/vim-colors_atelier-schemes'
-      Plug 'octol/vim-cpp-enhanced-highlight', {
-            \ 'for': 'cpp' }
-      Plug 'pangloss/vim-javascript', {
-            \ 'for': ['javascript', 'jsx']}
-      Plug 'maxmellon/vim-jsx-pretty', {
-            \ 'for': ['jsx']}
-    call plug#end()
+hi StatusLine ctermfg=7 ctermbg=0
+hi StatusLineNC ctermfg=8 ctermbg=0
+hi Visual ctermbg=15 ctermfg=4
+hi Comment ctermbg=0 ctermfg=8
+hi LineNr ctermbg=0 ctermfg=8
+hi clear WildMenu
+hi link WildMenu Visual
 
+set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
 
-" Color
-" -----
-    set background=dark
-    colorscheme Atelier_SavannaDark
-    hi StatusLine term=bold,reverse ctermfg=250 ctermbg=16 guifg=#bcbcbc guibg=#000000
-    hi StatusLineNC term=reverse ctermfg=238 ctermbg=16 guifg=#444444 guibg=#000000
-    hi Visual term=reverse ctermbg=21 guibg=#0000ff ctermfg=255 guifg=#eeeeee
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set autoindent smartindent
 
+set autoread
+set clipboard+=unnamed,unnamedplus
+set completeopt=menu,preview
+set noincsearch ignorecase smartcase noshowmatch
+set number
+set ttimeoutlen=100
+set undofile undodir=~/.vim/tmp/undo
 
-" Status line
-" -----------
-    set laststatus=1
-    set statusline=%f\ %r%=\ L:%l/%L\ \ \ C:%c\ \ \ 0x%B
-    set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
+set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
+set wildmenu wildmode=longest,full:list
 
+if (has('viminfo'))
+  set viminfofile=$HOME/.vim/.viminfo
+endif
 
-" Formatting
-" ----------
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
-    set expandtab
-
-    fun! TrimWhitespace()
-      let l:save=winsaveview()
-      keeppatterns %s/\s\+$//e
-      call winrestview(l:save)
-    endfun
-
-    fun! CPPFormatSettings()
-      setlocal equalprg=clang-format\ -style=google
-      setlocal makeprg=make
-    endfun
-    fun! GoFormatSettings()
-      setlocal equalprg=gofmt
-    endfun
-
-    fun! DefaultFormatSettings()
-      setlocal formatoptions-=ro
-    endfun
-
-    fun! MarkdownFormatSettings()
-      setlocal formatoptions+=tcro
-    endfun
-
-    augroup vimrc_formatting
-      autocmd FileType * call DefaultFormatSettings()
-      autocmd BufWritePre * call TrimWhitespace()
-      autocmd FileType c,cpp call CPPFormatSettings()
-      autocmd FileType go call GoFormatSettings()
-      autocmd FileType markdown call MarkdownFormatSettings()
-    augroup end
-
-
-" Editing
-" -------
-    set autoread
-    set clipboard+=unnamed,unnamedplus
-    set completeopt=menu,preview
-    set hidden
-    set lazyredraw
-    set nocompatible
-    set noincsearch ignorecase smartcase
-    set nomodeline modelines=0
-    set noshowmatch
-    set number
-    set scrolloff=10
-    set spelllang=en_us
-    set splitright splitbelow
-    set ttimeoutlen=100
-    set undofile undodir=~/.vim/tmp/undo
-    set wildignore=*.o,*.obj,*.swp,node_modules,.git,*.exe
-    set wildmenu
-    set wildmode=longest,full:list
-    set wrap
-    let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
-    let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-    let g:closetag_emptyTags_caseSensitive = 1
-    let g:closetag_regions = {
-        \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-        \ 'javascript.jsx': 'jsxRegion',
-        \ }
-    let g:closetag_shortcut = '>'
-
-    if (has('viminfo'))
-      set viminfofile=$HOME/.vim/.viminfo
-    endif
-
-
-" NERDTree
-" --------
-    let NERDTreeRespectWildIgnore=1
-    let NERDTreeShowHidden=1
-    let g:NERDTreeHijackNetrw=0
-    let g:loaded_netrw=1
-
-    fun! NERDTreeAutoClose()
-      if (winnr('$') == 1
-            \ && exists('b:NERDTree'))
-        q
-      endif
-    endfun
-
-    fun! NERDTreeOpenDirectory()
-      if (argc() == 1
-            \ && isdirectory(argv()[0])
-            \ && !exists('s:std_in'))
-        execute('NERDTree ' . argv()[0])
-        wincmd p
-        execute('cd ' . argv()[0])
-        let &path=getcwd()
-        wincmd p
-      endif
-    endfun
-
-    augroup vimrc_nerdtree
-      autocmd BufEnter * call NERDTreeAutoClose()
-      autocmd VimEnter * call NERDTreeOpenDirectory()
-    augroup end
-
-
-" TMUX
-" ----
-    if exists('$TMUX')
-      let g:tmuxtitle = system("tmux display-message -p '#W'")
-      fun! ResetTmuxWindowTitle()
-        call system("tmux setw automatic-rename")
-      endfun
-
-      fun! UpdateTmuxWindowTitle()
-        call system("tmux rename-window 'vim:" . expand("%:t") . "'")
-      endfun
-
-      augroup vimrc_tmux
-        autocmd BufEnter * call UpdateTmuxWindowTitle()
-        autocmd QuitPre * call ResetTmuxWindowTitle()
-      augroup end
-    endif
-
-
-" Key maps
-" --------
-    let NERDTreeMapOpenVSplit='v'
-    let NERDTreeMapOpenSplit='s'
-    nnoremap <S-Tab> :NERDTreeFocus<CR>
-    nnoremap <Tab> :NERDTreeToggle<CR><C-W>=
-    nnoremap <Space> <nop>
-    command W w
-    command Q q
-    command Qa qa
-    command WQ wq
-    command Wq wq
-    command Vimrc edit ~/.vim/vimrc
-    inoreabbrev DATETIME <C-R>=strftime("%c")<CR>
-    inoreabbrev DATETIME <C-R>=strftime("%c")<CR>
-    nnoremap <f4> :Next<cr>
-    nnoremap <f3> :Previous<cr>
+command W w
+command Q q
+command Qa qa
+command WQ wq
+command Wq wq
+command Vimrc edit ~/.vim/vimrc
