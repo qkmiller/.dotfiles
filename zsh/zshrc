@@ -31,6 +31,7 @@ setopt prompt_subst
 setopt appendhistory
 
 # Case insensitive completion
+compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 alias ls="ls --color=auto"
