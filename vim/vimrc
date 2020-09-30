@@ -1,9 +1,3 @@
-"  __     _____ __  __ ____   ____ 
-"  \ \   / /_ _|  \/  |  _ \ / ___|
-"   \ \ / / | || |\/| | |_) | |    
-"    \ V /  | || |  | |  _ <| |___ 
-"     \_/  |___|_|  |_|_| \_\\____|
-
 set background=dark
 colorscheme slate
 filetype plugin indent on
@@ -17,18 +11,17 @@ hi LineNr ctermbg=0 ctermfg=8
 hi clear WildMenu
 hi link WildMenu Visual
 
+set number
 set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set autoindent smartindent
 
 set autoread
+set ttimeoutlen=100
 set clipboard+=unnamed,unnamedplus
 set completeopt=menu,preview
 set noincsearch ignorecase smartcase noshowmatch
-set number
-set ttimeoutlen=100
-set undofile undodir=~/.vim/tmp/undo
 
 set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
 set wildmenu wildmode=longest,full:list
@@ -36,6 +29,8 @@ set wildmenu wildmode=longest,full:list
 if (has('viminfo'))
   set viminfofile=$HOME/.vim/.viminfo
 endif
+
+set undofile undodir=~/.vim/tmp/undo
 
 command W w
 command Q q
