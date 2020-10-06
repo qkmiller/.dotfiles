@@ -41,5 +41,5 @@ alias vi="vim"
 alias py="python3.8"
 alias diff="diff --color"
 
-PROMPT="%F{10}%B%n@%M %F{4}%1d %F{208}λ %F{15}"
+PROMPT="%F{208}[%B%n@%M] %F{4}%1d %F{208}λ %F{15}"
 RPROMPT="%t"
