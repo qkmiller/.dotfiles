@@ -1,4 +1,4 @@
-colorscheme slate
+set background=dark
 filetype plugin indent on
 syntax enable
 
@@ -13,15 +13,21 @@ hi clear DiffDelete
 hi clear DiffChange
 hi clear DiffText
 hi clear Folded
+hi clear Type
 hi StatusLine ctermfg=7
 hi StatusLineNC ctermfg=8
 hi Visual ctermbg=4 ctermfg=15
-hi LineNr ctermfg=8
 hi Comment ctermfg=8
 hi DiffChange ctermbg=136 ctermfg=15
 hi DiffAdd ctermfg=0 ctermbg=10
 hi DiffDelete ctermfg=0 ctermbg=1
 hi DiffChange ctermfg=0 ctermbg=13
+hi Structure ctermfg=11
+hi Statement ctermfg=13
+hi String ctermfg=10
+hi Constant ctermfg=9
+hi Type ctermfg=3
+hi link Type Structure
 hi link DiffText Visual
 hi link WildMenu Visual
 hi link LineNr Comment
@@ -31,11 +37,10 @@ set number
 set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set autoindent smartindent
-set autoread
 set ttimeoutlen=100
 set clipboard+=unnamed,unnamedplus
 set completeopt=menu,preview
-set noincsearch ignorecase smartcase noshowmatch
+set incsearch ignorecase smartcase noshowmatch
 set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
 set wildmenu wildmode=longest,full:list
 set undofile undodir=~/.vim/tmp/undo
@@ -44,9 +49,4 @@ if (has('viminfo'))
   set viminfofile=$HOME/.vim/.viminfo
 endif
 
-command W w
-command Q q
-command Qa qa
-command WQ wq
-command Wq wq
 command Vimrc edit $MYVIMRC
