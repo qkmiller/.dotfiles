@@ -14,6 +14,7 @@ hi clear DiffChange
 hi clear DiffText
 hi clear Folded
 hi clear Type
+hi clear Function
 hi StatusLine ctermfg=7
 hi StatusLineNC ctermfg=8
 hi Visual ctermbg=4 ctermfg=15
@@ -26,8 +27,8 @@ hi Structure ctermfg=11
 hi Statement ctermfg=13
 hi String ctermfg=10
 hi Constant ctermfg=9
-hi Type ctermfg=3
-hi link Type Structure
+hi Type ctermfg=12
+hi link Function Structure
 hi link DiffText Visual
 hi link WildMenu Visual
 hi link LineNr Comment
