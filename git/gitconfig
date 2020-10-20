@@ -1,6 +1,5 @@
 [core]
   editor = vim
-  tool = vimdiff
   excludesfile = ~/.gitignore_global
 [diff]
   tool = vimdiff
