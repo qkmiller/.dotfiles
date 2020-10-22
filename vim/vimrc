@@ -2,37 +2,17 @@ set background=dark
 filetype plugin indent on
 syntax enable
 
-hi clear WildMenu
-hi clear Comment
-hi clear Normal
-hi clear LineNr
-hi clear Visual
-hi clear Delimiter
-hi clear DiffAdd
-hi clear DiffDelete
-hi clear DiffChange
-hi clear DiffText
-hi clear Folded
-hi clear Type
-hi clear Function
 hi StatusLine ctermfg=7
 hi StatusLineNC ctermfg=8
 hi Visual ctermbg=4 ctermfg=15
+hi WildMenu ctermbg=4 ctermfg=15
+hi DiffText ctermbg=4 ctermfg=15
 hi Comment ctermfg=8
+hi LineNr ctermfg=8
 hi DiffChange ctermbg=136 ctermfg=15
 hi DiffAdd ctermfg=0 ctermbg=10
 hi DiffDelete ctermfg=0 ctermbg=1
 hi DiffChange ctermfg=0 ctermbg=13
-hi Structure ctermfg=11
-hi Statement ctermfg=13
-hi String ctermfg=10
-hi Constant ctermfg=9
-hi Type ctermfg=12
-hi link Function Structure
-hi link DiffText Visual
-hi link WildMenu Visual
-hi link LineNr Comment
-hi link Folded ToolbarLine
 
 set number
 set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
@@ -45,9 +25,6 @@ set incsearch ignorecase smartcase noshowmatch
 set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
 set wildmenu wildmode=longest,full:list
 set undofile undodir=~/.vim/tmp/undo
-
-if (has('viminfo'))
-  set viminfofile=$HOME/.vim/.viminfo
-endif
+set viminfofile=$HOME/.vim/.viminfo
 
 command Vimrc edit $MYVIMRC
