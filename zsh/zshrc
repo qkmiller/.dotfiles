@@ -12,14 +12,7 @@ autoload -U colors && colors
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Set default editor for git
 export GIT_EDITOR=vim
-
-# Set default editor for manpages
-export MANPAGER="vim -M +MANPAGER - +set\ nonumber"
-
-# enable true color support for neovim
-# export nvim_tui_enable_true_color=1
 
 export PATH="$PATH:$HOME/.local/bin"
 
