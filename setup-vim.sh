@@ -4,4 +4,4 @@
 mkdir -p ~/.vim/tmp/undo
 
 # Make links
-ln -sf ~/.dotfiles/vim/vimrc ~/.vim/vimrc
+ln -si ~/.dotfiles/vim/vimrc ~/.vim/vimrc

@@ -1,16 +1,35 @@
 #!/bin/bash
 
-echo "Changing shell to ZSH. You may need to enter your password..."
-chsh -s $(dirname $SHELL)/zsh
-# If zsh is not installed, install it and set it as the default shell
+skip=1
 if [[ "$SHELL" != *"zsh" ]]
 then
-  echo -e "\033[0;31mZSH not found"
-  echo -e "\033[0;31mSkipping setup for ZSH"
+    haszsh=$(ls /bin | grep zsh)
+    if [[ "$haszsh" != "" ]]
+    then
+        echo "Zsh was found, but its not your default shell."
+    while true
+    do
+        read -r -p "Make zsh your default shell? [Y/n]: " yesorno
+        if [[ "$yesorno" =~ [nN](o)* ]]
+        then
+            echo "Skipping zsh setup."
+            break
+        else
+            skip=0
+            chsh -s /bin/zsh
+            break
+        fi
+    done 
+    else
+        echo -e "\033[0;31mZsh not found. Skipping zsh setup."
+    fi
 else
-  mkdir ~/.zsh
-  ln -sf ~/.dotfiles/zsh/zshenv ~/.zshenv
-  # Make .zshrc show up as zshrc
-  ln -sf ~/.dotfiles/zsh/zshrc ~/.zsh/.zshrc
+    skip=0
 fi
 
+if [[ $skip = 0 ]]
+then
+    mkdir -p ~/.zsh
+    ln -si ~/.dotfiles/zsh/zshrc ~/.zsh/.zshrc
+    ln -si ~/.dotfiles/zsh/zshenv ~/.zshenv
+fi
