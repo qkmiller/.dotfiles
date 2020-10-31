@@ -16,7 +16,7 @@ hi DiffChange ctermfg=0 ctermbg=13
 
 set number
 set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set autoindent smartindent
 set ttimeoutlen=100
 set clipboard+=unnamed,unnamedplus
