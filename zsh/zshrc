@@ -2,19 +2,10 @@ HISTFILE="$HOME/.zsh/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=1000
 
-# Load all stock functions (from $fpath files) called below.
-autoload -U compaudit
-autoload -U compinit -d ~/.zsh/.zcompdump
-
-# Load colors
-autoload -U colors && colors
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export GIT_EDITOR=vim
-
 export PATH="$PATH:$HOME/.local/bin"
+
+# Local PulseAudio server
+export PASERVER=192.168.0.57
 
 # Enable vi mode
 set -o vi
@@ -24,15 +15,13 @@ setopt prompt_subst
 setopt appendhistory
 
 # Case insensitive completion
+autoload -U compinit -d ~/.zsh/.zcompdump
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 alias ls="ls --color=auto"
-alias lsa="ls -Ap"
-alias lsd="ls -lAptr"
-alias vi="vim"
-alias py="python3.8"
+alias py="python"
 alias diff="diff --color"
 
-PROMPT="%F{208}%B%n@%M %F{4}%1~ %F{208}λ %F{15}"
+PROMPT="%F{208}%B%n@%M %F{240}%1~ %F{208}λ %F{15}"
 RPROMPT="%t"
