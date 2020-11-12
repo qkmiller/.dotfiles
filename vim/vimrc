@@ -11,6 +11,7 @@ hi StatusLine ctermfg=7
 hi StatusLineNC ctermfg=8
 hi Visual ctermbg=4 ctermfg=15
 hi WildMenu ctermbg=4 ctermfg=15
+hi MatchParen ctermbg=0 ctermfg=2
 set autoindent smartindent
 set completeopt=menu,preview
 set incsearch ignorecase smartcase noshowmatch
