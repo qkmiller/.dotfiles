@@ -7,7 +7,7 @@ then
   then
     echo "Audio streaming already enabled"
   else
-    pacmd "load-module module-tunnel-sink-new sink_name=livingroom format=s16 rate=44100 server=$PASERVER"
+    pacmd "load-module module-tunnel-sink-new sink_name=livingroom format=s16 rate=22050 server=$PASERVER"
     pacmd 'set-default-sink livingroom'
   fi
 elif [ "$1" == off ]
