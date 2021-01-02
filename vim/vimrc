@@ -16,6 +16,7 @@ hi PmenuSel ctermbg=4 ctermfg=15
 hi MatchParen ctermbg=0 ctermfg=2
 set autoindent smartindent
 set completeopt=menu,preview
+set cursorline cursorlineopt=number
 set incsearch ignorecase smartcase noshowmatch
 set number
 set nowrap
