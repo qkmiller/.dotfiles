@@ -2,28 +2,20 @@ set background=dark
 filetype plugin indent on
 syntax enable
 hi LineNr ctermfg=8
-hi Comment ctermfg=8
+hi Comment ctermfg=1
 hi DiffAdd ctermfg=0 ctermbg=10
 hi DiffChange ctermfg=0 ctermbg=13
 hi DiffDelete ctermfg=0 ctermbg=1
 hi DiffText ctermbg=4 ctermfg=15
 hi StatusLine ctermfg=7
 hi StatusLineNC ctermfg=8
-hi Visual ctermbg=4 ctermfg=15
-hi WildMenu ctermbg=4 ctermfg=15
-hi Pmenu ctermbg=15 ctermfg=0
-hi PmenuSel ctermbg=4 ctermfg=15
 hi MatchParen ctermbg=0 ctermfg=2
 set autoindent smartindent
-set completeopt=menu,preview
-set cursorline cursorlineopt=number
 set incsearch ignorecase smartcase noshowmatch
 set number
 set nowrap
-set rulerformat=%30(%=L:%l/%L\ \ \ C:%c\ \ \ 0x%B%)
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set ttimeoutlen=100
 set undofile undodir=~/.vim/tmp/undo
 set viminfofile=$HOME/.vim/.viminfo
 set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
-set wildmenu wildmode=longest,full:list
