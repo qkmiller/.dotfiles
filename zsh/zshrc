@@ -1,28 +1,28 @@
+setopt appendhistory
+setopt rm_star_wait
+setopt multios
+setopt prompt_subst
+
+export PATH="$PATH:$HOME/.local/bin"
+export NOTES="$HOME/Desktop/notes/"
+export PASERVER=192.168.0.57
+
+set -o vi
+
 HISTFILE="$HOME/.zsh/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=1000
 
-export PATH="$PATH:$HOME/.local/bin"
+# Disable ctrl-s which pauses the terminal
+stty stop ''
 
-# Local PulseAudio server
-export PASERVER=192.168.0.57
-export NOTES="/home/$USER/Desktop/notes/"
-
-# Enable vi mode
-set -o vi
-
-setopt multios
-setopt prompt_subst
-setopt appendhistory
-
-# Case insensitive completion
 autoload -U compinit -d ~/.zsh/.zcompdump
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 alias ls="ls --color=auto"
-alias py="python"
+alias py="python3"
 alias diff="diff --color"
 
-PROMPT="%F{208}%B%n@%M %F{240}%1~ %F{208}λ %F{15}%b"
+PROMPT="%B%F{2}%n@%M:%F{4}%1~%F{15}%% %F{15}%b"
 RPROMPT="%t"
