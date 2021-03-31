@@ -2,13 +2,13 @@
 
 # Run all setup scripts
 echo "Setting up Vim config..."
-source ./setup-vim.sh
+source ./install/vim.sh
 echo "Setting up Git config..."
-source ./setup-git.sh
+source ./install/git.sh
 echo "Setting up Tmux config..."
-source ./setup-tmux.sh
+source ./install/tmux.sh
 echo "Setting up Zsh config..."
-source ./setup-zsh.sh
+source ./install/zsh.sh
 # Create notes directory and file on desktop
 echo "Creating /home/$USER/Desktop/notes/notes.md"
 mkdir -p ~/Desktop/notes
