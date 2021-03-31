@@ -108,7 +108,7 @@ user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.history.custom", true);
 user_pref("privacy.partition.network_state", true);
 user_pref("privacy.purge_trackers.enabled", true);
-user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.resistFingerprinting", false); //This causes websites to use the wrong timezone
 user_pref("privacy.sanitize.sanitizeOnShutdown", false);
 user_pref("privacy.socialtracking.block_cookies.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
