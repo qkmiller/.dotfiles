@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ln -si ~/.dotfiles/git/gitignore ~/.gitignore_global
+ln -si ~/.dotfiles/settings/git/gitignore ~/.gitignore_global
 
 # Add git config settings to global config
-git config --global include.path "~/.dotfiles/git/gitconfig"
+git config --global include.path "~/.dotfiles/settings/git/gitconfig"

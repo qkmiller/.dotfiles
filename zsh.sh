@@ -30,6 +30,6 @@ fi
 if [[ $skip = 0 ]]
 then
     mkdir -p ~/.zsh
-    ln -si ~/.dotfiles/zsh/zshrc ~/.zsh/.zshrc
-    ln -si ~/.dotfiles/zsh/zshenv ~/.zshenv
+    ln -si ~/.dotfiles/settings/zsh/zshrc ~/.zsh/.zshrc
+    ln -si ~/.dotfiles/settings/zsh/zshenv ~/.zshenv
 fi
