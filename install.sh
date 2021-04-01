@@ -1,15 +1,18 @@
 #!/bin/bash
 
-# Run all setup scripts
-echo "Setting up Vim config..."
+# Run install scripts
+echo "Installing vimrc..."
 source ./install/vim.sh
-echo "Setting up Git config..."
+echo "Installing inputrc..."
+source ./install/input.sh
+echo "Installing Git config and global gitignore..."
 source ./install/git.sh
-echo "Setting up Tmux config..."
+echo "Installing Tmux config..."
 source ./install/tmux.sh
-echo "Setting up Zsh config..."
+echo "Installing Zsh config..."
 source ./install/zsh.sh
+
 # Create notes directory and file on desktop
-echo "Creating /home/$USER/Desktop/notes/notes.md"
+echo "Creating ~/Desktop/notes/notes.md"
 mkdir -p ~/Desktop/notes
 touch ~/Desktop/notes/notes.txt
