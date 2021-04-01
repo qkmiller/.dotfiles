@@ -1,3 +1,6 @@
+user_pref("mousewheel.default.delta_multiplier_x", 300);
+user_pref("mousewheel.default.delta_multiplier_y", 300);
+user_pref("mousewheel.default.delta_multiplier_z", 300);
 user_pref("accessibility.force_disabled", 1);
 user_pref("app.normandy.api_url", "");
 user_pref("app.normandy.enabled", false);
