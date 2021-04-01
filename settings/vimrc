@@ -10,6 +10,8 @@ hi DiffText ctermbg=4 ctermfg=15
 hi StatusLine ctermfg=7
 hi StatusLineNC ctermfg=8
 hi MatchParen ctermbg=0 ctermfg=2
+hi Pmenu ctermbg=7 ctermfg=0 cterm=none
+hi PmenuSel ctermbg=3 ctermfg=0 cterm=none
 set autoindent smartindent
 set belloff=all
 set incsearch ignorecase smartcase noshowmatch
