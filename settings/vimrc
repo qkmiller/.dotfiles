@@ -17,6 +17,7 @@ set belloff=all
 set incsearch ignorecase smartcase noshowmatch
 set number
 set nowrap
+set pastetoggle=<F2>
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set ttimeoutlen=100
 set undofile undodir=~/.vim/tmp/undo
