@@ -1,5 +1,4 @@
 #!/bin/bash
-
 skip=1
 if [[ "$SHELL" != *"zsh" ]]
 then
