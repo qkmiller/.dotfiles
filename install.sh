@@ -13,8 +13,12 @@ echo "Installing Tmux config..."
 source ./install/tmux.sh
 echo "Installing Zsh config..."
 source ./install/zsh.sh
+echo "Installing Newsboat config and urls..."
+source ./install/newsboat.sh
+echo "Installing Alacritty config..."
+source ./install/alacritty.sh
 
 # Create desktop notes
-echo "Creating ~/Desktop/notes/notes.md"
+echo "Creating ~/Desktop/notes/notes.txt"
 mkdir -p ~/Desktop/notes
 touch ~/Desktop/notes/notes.txt
