@@ -9,11 +9,16 @@ hi DiffDelete ctermfg=0 ctermbg=1
 hi DiffText ctermbg=4 ctermfg=15
 hi StatusLine ctermfg=7
 hi StatusLineNC ctermfg=8
-hi MatchParen ctermbg=0 ctermfg=2
+hi MatchParen term=none cterm=bold ctermbg=0 ctermfg=6
 hi Pmenu ctermbg=7 ctermfg=0 cterm=none
-hi PmenuSel ctermbg=3 ctermfg=0 cterm=none
+hi PmenuSel ctermbg=3 ctermfg=0 cterm=bold
+hi CursorLineNr ctermbg=7 ctermfg=0
+hi! link WildMenu PmenuSel
+
 set autoindent smartindent
 set belloff=all
+set backspace=indent,eol,start
+set hidden
 set incsearch ignorecase smartcase noshowmatch
 set number
 set nowrap
@@ -23,3 +28,7 @@ set ttimeoutlen=100
 set undofile undodir=~/.vim/tmp/undo
 set viminfofile=$HOME/.vim/.viminfo
 set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
+set wildmenu
+
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
