@@ -1,8 +1,9 @@
-set background=dark
+set t_Co=16
+set background=light
 filetype plugin indent on
 syntax enable
 hi LineNr ctermfg=8
-hi Comment ctermfg=1
+"hi Comment ctermfg=1
 hi DiffAdd ctermfg=0 ctermbg=10
 hi DiffChange ctermfg=0 ctermbg=13
 hi DiffDelete ctermfg=0 ctermbg=1

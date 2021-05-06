@@ -1,31 +1,54 @@
-# Colors (iTerm 2 default theme)
-colors:
-  # Default colors
-  primary:
-    background: '0x000000'
-    foreground: '0xfffbf6'
 
-  # Normal colors
-  normal:
-    black:   '0x000000'
-    red:     '0xeb4129'
-    green:   '0xabe047'
-    yellow:  '0xf6c744'
-    blue:    '0x47a0f3'
-    magenta: '0x7b5cb0'
-    cyan:    '0x64dbed'
-    white:   '0xe5e9f0'
+# Colorschemes
+schemes:
+  dark_gruv: &dark_gruv
+    primary:
+      background: '#0e0e00'
+      foreground: '#ab9b72'
+    normal:
+      black:   '#0e0e00' #0
+      red:     '#cc241d' #1
+      green:   '#97971a' #2
+      yellow:  '#d79921' #3
+      blue:    '#347477' #4
+      magenta: '#a15276' #5
+      cyan:    '#689d6a' #6
+      white:   '#786954' #7
+    bright:
+      black:   '#524334' #8
+      red:     '#fb4934' #9
+      green:   '#b8bb26' #10
+      yellow:  '#fabd2f' #11
+      blue:    '#628477' #12
+      magenta: '#af6277' #13
+      cyan:    '#89bb77' #14
+      white:   '#ab9b72' #15
 
-  # Bright colors
-  bright:
-    black:   '0x565656'
-    red:     '0xec5357'
-    green:   '0xc0e17d'
-    yellow:  '0xf9da6a'
-    blue:    '0x49a4f8'
-    magenta: '0xa47de9'
-    cyan:    '0x99faf2'
-    white:   '0xffffff'
+  iterm: &iterm
+    primary:
+      background: '#000000'
+      foreground: '#fffbf6'
+    normal:
+      black:   '#000000' #0
+      red:     '#eb4129' #1
+      green:   '#abe047' #2
+      yellow:  '#f6c744' #3
+      blue:    '#47a0f3' #4
+      magenta: '#7b5cb0' #5
+      cyan:    '#64dbed' #6
+      white:   '#e5e9f0' #7
+    bright:                 
+      black:   '#565656' #8
+      red:     '#ec5357' #9
+      green:   '#c0e17d' #10
+      yellow:  '#f9da6a' #11
+      blue:    '#49a4f8' #12
+      magenta: '#a47de9' #13
+      cyan:    '#99faf2' #14
+      white:   '#ffffff' #15
+
+colors: *dark_gruv
+
 font:
   normal:
     family: Inconsolata
