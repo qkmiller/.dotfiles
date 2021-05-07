@@ -3,7 +3,6 @@ set background=light
 filetype plugin indent on
 syntax enable
 hi LineNr ctermfg=8
-"hi Comment ctermfg=1
 hi DiffAdd ctermfg=0 ctermbg=10
 hi DiffChange ctermfg=0 ctermbg=13
 hi DiffDelete ctermfg=0 ctermbg=1
@@ -14,7 +13,9 @@ hi MatchParen term=none cterm=bold ctermbg=0 ctermfg=6
 hi Pmenu ctermbg=7 ctermfg=0 cterm=none
 hi PmenuSel ctermbg=3 ctermfg=0 cterm=bold
 hi CursorLineNr ctermbg=7 ctermfg=0
+hi Folded ctermfg=0
 hi! link WildMenu PmenuSel
+hi! link FoldColumn Folded
 
 set autoindent smartindent
 set belloff=all
