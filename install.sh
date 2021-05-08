@@ -5,7 +5,7 @@ echo "Installing vimrc..."
 source ./install/vim.sh
 echo "Installing inputrc..."
 source ./install/input.sh
-echo "Installing xprofile..."
+echo "Installing xprofile and .Xresources..."
 source ./install/x.sh
 echo "Installing Git config and global gitignore..."
 source ./install/git.sh
