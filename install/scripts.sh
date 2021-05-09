@@ -1,8 +1,12 @@
 #!/bin/bash
 mkdir -p ~/.local/bin
+ln -si ~/.dotfiles/scripts/fixbacklight.sh ~/.local/bin/fixbacklight
+ln -si ~/.dotfiles/scripts/fixcaps.sh ~/.local/bin/fixcaps
+ln -si ~/.dotfiles/scripts/fixres.sh ~/.local/bin/fixres
+ln -si ~/.dotfiles/scripts/fixtouchpad.sh ~/.local/bin/fixtouchpad
 ln -si ~/.dotfiles/scripts/streamaudio.sh ~/.local/bin/streamaudio
-ln -si ~/.dotfiles/scripts/capsctrl.sh ~/.local/bin/capsctrl
-ln -si ~/.dotfiles/scripts/touchpad.sh ~/.local/bin/touchpad
+chmod +x ~/.local/bin/fixbacklight
+chmod +x ~/.local/bin/fixcaps
+chmod +x ~/.local/bin/fixres
+chmod +x ~/.local/bin/fixtouchpad
 chmod +x ~/.local/bin/streamaudio
-chmod +x ~/.local/bin/capsctrl
-chmod +x ~/.local/bin/touchpad
