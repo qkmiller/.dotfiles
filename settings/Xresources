@@ -18,3 +18,5 @@
 *color15: #ab9b72
 *faceName: DejaVu Sans Mono
 *faceSize: 10
+!This fixes a stupid issue with colors in ubuntu
+*customization:
