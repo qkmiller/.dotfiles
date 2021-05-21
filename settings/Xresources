@@ -20,3 +20,4 @@
 *faceSize: 10
 !This fixes a stupid issue with colors in ubuntu
 *customization:
+*XTerm.termName: xterm-256color
