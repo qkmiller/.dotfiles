@@ -16,8 +16,28 @@
 *color13: #af6277
 *color14: #89bb77
 *color15: #ab9b72
-*faceName: DejaVu Sans Mono
-*faceSize: 10
+*faceName: Liberation Mono
+*faceSize: 12
+
 !This fixes a stupid issue with colors in ubuntu
 *customization:
 *XTerm.termName: xterm-256color
+
+!Font menu
+XTerm.faceSize1: 8
+XTerm.faceSize2: 10
+XTerm.faceSize3: 12
+XTerm.faceSize4: 16
+XTerm.faceSize5: 20
+XTerm.faceSize6: 24
+
+XTerm*scrollTtyOutput: false
+XTerm*scrollBar: false
+XTerm*highlightSelection: true
+
+!Keybinds
+XTerm*translations: #override \n\
+    Ctrl <Key>-: smaller-vt-font() \n\
+    Ctrl <Key>+: larger-vt-font() \n\
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
