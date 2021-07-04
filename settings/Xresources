@@ -1,35 +1,31 @@
-*foreground: #ab9b72
-*background: #0e0e00
-*color0: #0e0e00
-*color1: #cc241d
-*color2: #97971a
-*color3: #d79921
-*color4: #347477
-*color5: #a15276
-*color6: #689d6a
-*color7: #786954
-*color8: #524334
-*color9: #fb4934
-*color10: #b8bb26
-*color11: #fabd2f
-*color12: #628477
-*color13: #af6277
-*color14: #89bb77
-*color15: #ab9b72
-*faceName: Liberation Mono
+Xterm*visualBell: false
+XTerm.termName: xterm-256color
+
+!Colors
+*background: #181818
+*foreground: #d8d8d8
+*color0: #181818
+*color1: #ab4642
+*color2: #a1b56c
+*color3: #f7ca88
+*color4: #7cafc2
+*color5: #ba8baf
+*color6: #86c1b9
+*color7: #d8d8d8
+*color8: #585858
+*color9: #ab4642
+*color10: #a1b56c
+*color11: #f7ca88
+*color12: #7cafc2
+*color13: #ba8baf
+*color14: #86c1b9
+*color15: #f8f8f8
+
+*faceName: Dejavu Sans Mono
 *faceSize: 12
 
 !This fixes a stupid issue with colors in ubuntu
 *customization:
-*XTerm.termName: xterm-256color
-
-!Font menu
-XTerm.faceSize1: 8
-XTerm.faceSize2: 10
-XTerm.faceSize3: 12
-XTerm.faceSize4: 16
-XTerm.faceSize5: 20
-XTerm.faceSize6: 24
 
 XTerm*scrollTtyOutput: false
 XTerm*scrollBar: false

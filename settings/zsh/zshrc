@@ -2,6 +2,7 @@ setopt appendhistory
 setopt rm_star_wait
 setopt multios
 setopt prompt_subst
+unsetopt BEEP
 
 export PATH="$PATH:$HOME/.local/bin"
 export NOTES="$HOME/Desktop/notes/"
