@@ -1,37 +1,34 @@
-set t_Co=16
-set background=light
+color spacegray
+set background=dark
 filetype plugin indent on
 syntax enable
-hi LineNr ctermfg=8
-hi DiffAdd ctermfg=0 ctermbg=10
-hi DiffChange ctermfg=0 ctermbg=13
-hi DiffDelete ctermfg=0 ctermbg=1
-hi DiffText ctermbg=4 ctermfg=15
-hi StatusLine ctermfg=7
-hi StatusLineNC ctermfg=8
-hi MatchParen cterm=bold ctermbg=0 ctermfg=6
-hi Pmenu ctermbg=7 ctermfg=0 cterm=none
-hi PmenuSel ctermbg=3 ctermfg=0 cterm=bold
-hi CursorLineNr ctermbg=7 ctermfg=0
-hi Folded ctermfg=0
-hi Visual cterm=reverse ctermbg=0
-hi! link WildMenu PmenuSel
-hi! link FoldColumn Folded
 
+hi! link Pmenu StatusLine
+hi! link PmenuSel WildMenu
+
+set autochdir
+set autoread
 set autoindent smartindent
 set belloff=all
 set backspace=indent,eol,start
+set formatoptions+=j
 set hidden
 set incsearch ignorecase smartcase noshowmatch
 set number
 set nowrap
 set pastetoggle=<F2>
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set splitright splitbelow
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set ttimeoutlen=100
 set undofile undodir=~/.vim/tmp/undo
 set viminfofile=$HOME/.vim/.viminfo
-set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
+set wildignore=*.out,*.o,*.obj,.git,*.exe
 set wildmenu
 
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
+cnoremap Wq wq
+cnoremap WQ wq
+cnoremap Q q
+cnoremap Qa qa
+cnoremap W w
