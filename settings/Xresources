@@ -1,33 +1,32 @@
 Xterm*visualBell: false
 XTerm.termName: xterm-256color
 
-!Colors
-*background: #181818
-*foreground: #d8d8d8
-*color0: #181818
-*color1: #ab4642
-*color2: #a1b56c
-*color3: #f7ca88
-*color4: #7cafc2
-*color5: #ba8baf
-*color6: #86c1b9
-*color7: #d8d8d8
-*color8: #585858
-*color9: #ab4642
-*color10: #a1b56c
-*color11: #f7ca88
-*color12: #7cafc2
-*color13: #ba8baf
-*color14: #86c1b9
-*color15: #f8f8f8
-
-*faceName: Dejavu Sans Mono
+!Tango Dark color scheme
+*background: #000000
+*foreground: #d3d7cf
+*color0: #2e3436
+*color1: #cc0000
+*color2: #4e9a06
+*color3: #c4a000
+*color4: #3465a4
+*color5: #75507b
+*color6: #06989a
+*color7: #d3d7cf
+*color8: #555753
+*color9: #ef2929
+*color10: #8ae234
+*color11: #fce94f
+*color12: #729fcf
+*color13: #ad7fa8
+*color14: #34e2e2
+*color15: #eeeeec
+*faceName: Ubuntu Mono
 *faceSize: 12
 
 !This fixes a stupid issue with colors in ubuntu
 *customization:
 
-XTerm*scrollTtyOutput: false
+XTerm*scrollTtyOutput: true
 XTerm*scrollBar: false
 XTerm*highlightSelection: true
 
