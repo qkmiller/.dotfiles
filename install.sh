@@ -1,24 +1,31 @@
 #!/bin/bash
 
-# Run install scripts
-echo "Installing vimrc..."
-source ./install/vim.sh
-echo "Installing inputrc..."
-source ./install/input.sh
-echo "Installing xprofile and .Xresources..."
-source ./install/x.sh
-echo "Installing Git config and global gitignore..."
-source ./install/git.sh
-echo "Installing Tmux config..."
-source ./install/tmux.sh
-echo "Installing Zsh config..."
-source ./install/zsh.sh
-echo "Installing Newsboat config and urls..."
-source ./install/newsboat.sh
-echo "Installing Alacritty config..."
-source ./install/alacritty.sh
+prompt() {
+    running=1
+    while [ $running == 1 ]
+    do
+        userprompt=$(read -e -p Install\ $1\ config\ files?\ \[Y/n]:; echo $REPLY)
+        case $userprompt in
+            [yY][eE][sS]|[yY]|"")
+                running=0
+                printf "Installing $1...\n"
+                source $2
+            ;;
+            [nN][oO]|[nN])
+                running=0
+                printf "\033[1;31mSkipping $1...\033[0m\n"
+            ;;
+            *)
+                echo "Invalid input."
+        esac
+    done
+}
 
-# Create desktop notes
-echo "Creating ~/Desktop/notes/notes.txt"
-mkdir -p ~/Desktop/notes
-touch ~/Desktop/notes/notes.txt
+prompt vim ./install/vim.sh
+prompt input ./install/input.sh
+prompt xterm ./install/x.sh
+prompt git ./install/git.sh
+prompt tmux ./install/tmux.sh
+prompt zsh ./install/zsh.sh
+prompt newsboat ./install/newsboat.sh
+prompt alacritty ./install/alacritty.sh
