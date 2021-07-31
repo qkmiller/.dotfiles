@@ -20,13 +20,13 @@ XTerm.termName: xterm-256color
 *color13: #ad7fa8
 *color14: #34e2e2
 *color15: #eeeeec
+
 *faceName: Ubuntu Mono
-*faceSize: 12
+*faceSize: 14
 
 !This fixes a stupid issue with colors in ubuntu
 *customization:
 
-XTerm*scrollTtyOutput: true
 XTerm*scrollBar: false
 XTerm*highlightSelection: true
 
