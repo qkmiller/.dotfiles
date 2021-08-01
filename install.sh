@@ -21,11 +21,12 @@ prompt() {
     done
 }
 
-prompt vim ./install/vim.sh
-prompt input ./install/input.sh
-prompt xterm ./install/x.sh
-prompt git ./install/git.sh
-prompt tmux ./install/tmux.sh
-prompt zsh ./install/zsh.sh
-prompt newsboat ./install/newsboat.sh
 prompt alacritty ./install/alacritty.sh
+prompt bash ./install/bash.sh
+prompt git ./install/git.sh
+prompt input ./install/input.sh
+prompt newsboat ./install/newsboat.sh
+prompt tmux ./install/tmux.sh
+prompt vim ./install/vim.sh
+prompt xterm ./install/x.sh
+prompt zsh ./install/zsh.sh
