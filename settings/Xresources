@@ -2,9 +2,9 @@ Xterm*visualBell: false
 XTerm.termName: xterm-256color
 
 !Tango Dark color scheme
-*background: #000000
+*background: #181818
 *foreground: #d3d7cf
-*color0: #2e3436
+*color0: #181818
 *color1: #cc0000
 *color2: #4e9a06
 *color3: #c4a000
@@ -21,8 +21,7 @@ XTerm.termName: xterm-256color
 *color14: #34e2e2
 *color15: #eeeeec
 
-*faceName: Ubuntu Mono
-*faceSize: 14
+*faceName: Ubuntu Mono:size=14
 
 !This fixes a stupid issue with colors in ubuntu
 *customization:
