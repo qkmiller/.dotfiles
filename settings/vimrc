@@ -16,7 +16,7 @@ hi WildMenu     cterm=NONE    ctermfg=NONE  ctermbg=4
 
 set autochdir
 set autoread
-set autoindent smartindent
+set autoindent
 set belloff=all
 set backspace=indent,eol,start
 set formatoptions+=j
@@ -26,7 +26,7 @@ set number
 set nowrap
 set pastetoggle=<F2>
 set splitright splitbelow
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set ttimeoutlen=100
 set undofile undodir=~/.vim/tmp/undo
 set viminfofile=$HOME/.vim/.viminfo
