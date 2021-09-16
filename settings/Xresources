@@ -2,9 +2,9 @@ Xterm*visualBell: false
 XTerm.termName: xterm-256color
 
 !Tango Dark color scheme
-*background: #2e3436
+*background: #000000
 *foreground: #d3d7cf
-*color0: #2e3436
+*color0: #000000
 *color1: #cc0000
 *color2: #4e9a06
 *color3: #c4a000
