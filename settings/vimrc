@@ -5,7 +5,7 @@ filetype plugin indent on
 syntax enable
 
 hi Comment      cterm=NONE    ctermfg=4
-hi LineNr       cterm=NONE    ctermfg=8
+"hi LineNr       cterm=NONE    ctermfg=8
 hi PmenuSel     cterm=NONE    ctermfg=NONE  ctermbg=4
 hi Pmenu        cterm=NONE    ctermfg=NONE  ctermbg=8
 hi MatchParen   cterm=BOLD    ctermfg=6     ctermbg=NONE
