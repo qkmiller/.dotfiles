@@ -4,7 +4,7 @@ set background=dark
 filetype plugin indent on
 syntax enable
 
-hi Comment      cterm=NONE    ctermfg=4
+hi Comment      cterm=NONE    ctermfg=8
 "hi LineNr       cterm=NONE    ctermfg=8
 hi PmenuSel     cterm=NONE    ctermfg=NONE  ctermbg=4
 hi Pmenu        cterm=NONE    ctermfg=NONE  ctermbg=8
