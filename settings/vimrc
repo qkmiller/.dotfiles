@@ -4,37 +4,43 @@ set background=dark
 filetype plugin indent on
 syntax enable
 
-hi Comment      cterm=NONE    ctermfg=8
-"hi LineNr       cterm=NONE    ctermfg=8
-hi PmenuSel     cterm=NONE    ctermfg=NONE  ctermbg=4
-hi Pmenu        cterm=NONE    ctermfg=NONE  ctermbg=8
-hi MatchParen   cterm=BOLD    ctermfg=6     ctermbg=NONE
-hi StatusLineNC cterm=NONE    ctermfg=0     ctermbg=8
-hi StatusLine   cterm=NONE    ctermfg=NONE  ctermbg=8
-hi Visual       cterm=REVERSE ctermfg=NONE  ctermbg=NONE
-hi WildMenu     cterm=NONE    ctermfg=NONE  ctermbg=4
+hi Comment      cterm=NONE            ctermfg=8
+hi LineNr       cterm=NONE            ctermfg=8
+hi ModeMsg      cterm=BOLD,REVERSE    ctermfg=13    ctermbg=NONE
+hi PmenuSel     cterm=NONE            ctermfg=NONE  ctermbg=4
+hi Pmenu        cterm=NONE            ctermfg=NONE  ctermbg=8
+hi MatchParen   cterm=BOLD            ctermfg=6     ctermbg=NONE
+hi StatusLineNC cterm=BOLD,REVERSE    ctermfg=8     ctermbg=NONE
+"hi StatusLine   cterm=NONE            ctermfg=15    ctermbg=8
+hi Visual       cterm=REVERSE         ctermfg=NONE  ctermbg=NONE
+hi WildMenu     cterm=NONE            ctermfg=NONE  ctermbg=4
 
-set autochdir
-set autoread
-set autoindent
+"set autochdir
+"set autoread
+set autoindent smartindent
 set belloff=all
 set backspace=indent,eol,start
 set formatoptions+=j
 set hidden
 set incsearch ignorecase smartcase noshowmatch
+set laststatus=2
 set number
 set nowrap
 set pastetoggle=<F2>
 set splitright splitbelow
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set ttimeoutlen=100
 set undofile undodir=~/.vim/tmp/undo
 set viminfofile=$HOME/.vim/.viminfo
-set wildignore=*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
+set wildignore=*.a,*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
 set wildmenu
+
+"let g:netrw_winsize=20
+"let g:netrw_keepdir=1
 
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
+"nnoremap <Tab> :Lex<CR>
 cnoremap Wq wq
 cnoremap WQ wq
 cnoremap Q q

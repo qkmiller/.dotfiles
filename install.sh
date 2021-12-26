@@ -20,13 +20,14 @@ prompt() {
         esac
     done
 }
+dir=$(dirname $(realpath $0))
 
-prompt alacritty ./install/alacritty.sh
-prompt bash ./install/bash.sh
-prompt git ./install/git.sh
-prompt input ./install/input.sh
-prompt newsboat ./install/newsboat.sh
-prompt tmux ./install/tmux.sh
-prompt vim ./install/vim.sh
-prompt xterm ./install/x.sh
-prompt zsh ./install/zsh.sh
+prompt alacritty $dir/install/alacritty.sh
+prompt bash $dir/install/bash.sh
+prompt git $dir/install/git.sh
+prompt input $dir/install/input.sh
+prompt newsboat $dir/install/newsboat.sh
+prompt tmux $dir/install/tmux.sh
+prompt vim $dir/install/vim.sh
+prompt xterm $dir/install/x.sh
+prompt zsh $dir/install/zsh.sh
