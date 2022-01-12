@@ -20,7 +20,7 @@ prompt() {
         esac
     done
 }
-dir=$(dirname $(realpath $0))
+dir=$(dirname $(basename $0))
 
 prompt alacritty $dir/install/alacritty.sh
 prompt bash $dir/install/bash.sh
