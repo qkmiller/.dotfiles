@@ -1,10 +1,13 @@
+
 setopt appendhistory
 setopt rm_star_wait
 setopt multios
 setopt prompt_subst
 unsetopt BEEP
 
-export PATH="$PATH:$HOME/.local/bin"
+#export PATH="$PATH:$HOME/.local/bin"
+export PATH="/Users/quinn/Library/Python/3.8/bin/:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export NOTES="$HOME/Desktop/notes/"
 export PASERVER=192.168.0.57
 export EDITOR="vim"
@@ -28,9 +31,21 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-alias ls="ls --color=auto"
+#alias ls="ls --color=auto"
+alias ls="ls -G"
 alias py="python3"
 alias diff="diff --color"
+alias vps="ssh quinn@173.255.215.170 -p 65535"
 
-PROMPT="%B%F{2}%n@%M:%F{4}%1~%F{15}%% %F{15}%b"
-RPROMPT="%t"
+
+if [[ $UID = 0 ]]
+then
+  USER="%b%F{1}%n@%M "
+  SYMBOL="%F{1}#"
+else
+  USER="%b%F{10}%n@%M "
+  SYMBOL="%F{208}λ"
+fi
+
+PROMPT="$USER%b%F{4}%1~ $SYMBOL %b%F{15}"
+#RPROMPT="%t"
