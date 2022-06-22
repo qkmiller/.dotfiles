@@ -1,0 +1,67 @@
+;;; Package --- Summary
+;;; Commentary:
+;;; 	My Emacs config
+;;; Code:
+
+
+;;; Custom:
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
+ '(custom-enabled-themes '(vscode-dark-plus))
+ '(custom-safe-themes
+   '("44ac1ad9ed61c0ba621691a59740310429dfae4995e4846db8350cdebfe245cc" default))
+ '(frame-brackground-mode 'dark)
+ '(ispell-dictionary nil)
+ '(package-selected-packages
+   '(helm yasnippet which-key vue-mode vscode-dark-plus-theme use-package typing-game gruber-darker-theme flycheck evil base16-theme ayu-theme atom-one-dark-theme abyss-theme)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
+
+
+;;; Settings:
+(setq backup-directory-alist '(("." . "~/.emacs_saves")))
+
+;;; Packages:
+(eval-and-compile
+    (require 'package)
+    (setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
+			     ("melpa-stable" . "https://stable.melpa.org/packages/")))
+    (package-initialize)
+    (unless (package-installed-p 'use-package)
+      (package-refresh-contentes)
+      (package-install 'use-package))
+    (require 'use-package)
+    (setf use-package-always-ensure t))
+
+
+(eval-when-compile
+  (require 'use-package))
+
+(use-package evil
+  :config (evil-mode 1))
+
+(use-package which-key
+  :config (which-key-mode 1))
+
+(use-package flycheck
+  :config (global-flycheck-mode 1))
+
+(use-package helm
+  :bind (("C-x C-f" . helm-find-files)
+	 ("M-x" . helm-M-x))
+  :config (helm-mode 1))
+
+;;; .emacs ends here
