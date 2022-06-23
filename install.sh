@@ -31,3 +31,4 @@ prompt tmux $dir/install/tmux.sh
 prompt vim $dir/install/vim.sh
 prompt xterm $dir/install/x.sh
 prompt zsh $dir/install/zsh.sh
+prompt emacs $dir/install/emacs.sh
