@@ -3,14 +3,24 @@
 ;;; 	My Emacs config
 ;;; Code:
 
+;;; Globals:
+(defvar user-terminal "gnome-terminal")
+
 ;;; Settings:
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-;;(ido-mode 1)
-(setq dired-listing-switches "-lah --group-directories-first")
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file t)
+(setq dired-listing-switches "-lXah")
+(setq-default dired-dwim-target t)
 (setq help-window-select t)
+
+(setq vc-follow-symlinks nil)
+
 (fset 'yes-or-no-p 'y-or-n-p)
+
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'column-number-mode)
 
 ;;; Packages:
 (eval-and-compile
@@ -19,7 +29,7 @@
 			     ("melpa-stable" . "https://stable.melpa.org/packages/")))
     (package-initialize)
     (unless (package-installed-p 'use-package)
-      (package-refresh-contentes)
+      (package-refresh-contents)
       (package-install 'use-package))
     (require 'use-package)
     (setf use-package-always-ensure t))
@@ -28,25 +38,45 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package ido
+  :ensure nil
+  :config
+  (ido-mode 1)
+  (setf (nth 0 ido-decorations) "")
+  (setf (nth 1 ido-decorations) "")
+  (setf (nth 2 ido-decorations) "\n")
+  (setq ido-enable-last-directory-history t))
+
 (use-package evil
-  :config (evil-mode 1))
+  :config
+  (evil-mode 1)
+  (setq evil-complete-next-func 'hippie-expand))
+
+(use-package magit)
 
 (use-package which-key
   :config (which-key-mode 1))
 
+(use-package python-mode
+  :ensure nil
+  :custom
+  (python-shell-interpreter "python3"))
+
 (use-package flycheck
   :config
   (add-hook 'prog-mode-hook 'flycheck-mode))
-
+  
 (use-package vscode-dark-plus-theme
   :config
   (load-theme 'vscode-dark-plus t)
   (set-face-background 'line-number "#333333")
-  (setq frame-background-mode 'dark))
+  (setq frame-background-mode 'dark)
+  (set-face-background 'mode-line-inactive "#000044")
+  (set-face-background 'mode-line "#0000aa")
+  (set-face-foreground 'mode-line-inactive "#7d7d7d"))
 
-;;(use-package helm
-;;  :bind (("C-x C-f" . helm-find-files)
-;;	 ("M-x" . helm-M-x))
-;;  :config (helm-mode 1))
+;;; Keybinds:
+(global-set-key (kbd "C-c t") (kbd (concat "M-! " user-terminal)))
+(global-set-key (kbd "C-c C-t") (kbd (concat "M-! " user-terminal)))
 
 ;;; .emacs ends here
