@@ -1,4 +1,4 @@
-
+#!/usr/bin/env zsh
 setopt appendhistory
 setopt rm_star_wait
 setopt multios
@@ -18,6 +18,7 @@ set -o vi
 HISTFILE="$HOME/.zsh/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=1000
+kernel=$(uname -s)
 
 # Disable ctrl-s which pauses the terminal
 stty stop ''
@@ -32,11 +33,16 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-#alias ls="ls --color=auto"
-alias ls="ls -G"
-alias py="python3"
+# Aliases
 alias diff="diff --color"
 alias vps="ssh quinn@173.255.215.170 -p 65535"
+
+if [[ $kernel = "Darwin" ]]
+then
+    alias ls="ls -G"
+else
+    alias ls="ls --color=auto"
+fi
 
 if [[ $UID = 0 ]]
 then
