@@ -11,15 +11,20 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file t)
-(setq dired-listing-switches "-lXah")
-(setq-default dired-dwim-target t)
 (setq help-window-select t)
 (setq vc-follow-symlinks nil)
+(setq dired-listing-switches "-lXah")
+(setq-default dired-dwim-target t)
+(setq-default python-shell-interpreter "python3")
+(setq-default org-enforce-todo-dependencies nil)
+(setq-default org-startup-indented t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-to-list 'default-frame-alist '(height . 48))
 (add-to-list 'default-frame-alist '(width . 120))
+(setq completion-ignore-case t)
+(tool-bar-mode -1)
 
 ;;; Packages:
 (eval-and-compile
@@ -33,7 +38,6 @@
     (require 'use-package)
     (setf use-package-always-ensure t))
 
-
 (eval-when-compile
   (require 'use-package))
 
@@ -41,10 +45,12 @@
   :ensure nil
   :config
   (ido-mode 1)
-  (setf (nth 0 ido-decorations) "")
-  (setf (nth 1 ido-decorations) "")
-  (setf (nth 2 ido-decorations) "\n")
-  (setq ido-enable-last-directory-history t))
+  (setf ido-decorations '("\n" "" "\n" " | ..." "\n" "" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]"))
+  ;;(setf (nth 0 ido-decorations) "")
+  ;;(setf (nth 1 ido-decorations) "")
+  ;;(setf (nth 2 ido-decorations) "\n")
+  (setq ido-enable-last-directory-history t)
+  (setq ido-case-fold t))
 
 (use-package evil
   :config
@@ -56,17 +62,10 @@
 (use-package which-key
   :config (which-key-mode 1))
 
-(use-package python-mode
-  :ensure nil
-  :custom
-  (python-shell-interpreter "python3"))
-
 (use-package flycheck
   :config
   (add-hook 'prog-mode-hook 'flycheck-mode))
 
-(use-package org)
-  
 (use-package vscode-dark-plus-theme
   :config
   (load-theme 'vscode-dark-plus t)
