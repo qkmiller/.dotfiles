@@ -3,10 +3,16 @@
 ;;; 	My Emacs config
 ;;; Code:
 
-;;; Globals:
+;; User Variables:
 (defvar user-terminal "gnome-terminal")
 
-;;; Settings:
+;; Set utf-8
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq-default default-buffer-file-coding-system 'utf-8)
+
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 (setq custom-file (concat user-emacs-directory "custom.el"))
@@ -16,8 +22,15 @@
 (setq dired-listing-switches "-lXah")
 (setq-default dired-dwim-target t)
 (setq-default python-shell-interpreter "python3")
-(setq-default org-enforce-todo-dependencies nil)
-(setq-default org-startup-indented t)
+
+;; org-mode
+(setq-default org-enforce-todo-dependencies nil
+	      org-startup-indented t
+	      org-hide-emphasis-markers t
+	      org-fontify-done-headline t
+	      org-pretty-entities t
+	      org-default)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'column-number-mode)
@@ -41,16 +54,43 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package ido
-  :ensure nil
-  :config
-  (ido-mode 1)
-  (setf ido-decorations '("\n" "" "\n" " | ..." "\n" "" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]"))
-  ;;(setf (nth 0 ido-decorations) "")
-  ;;(setf (nth 1 ido-decorations) "")
-  ;;(setf (nth 2 ido-decorations) "\n")
-  (setq ido-enable-last-directory-history t)
-  (setq ido-case-fold t))
+;; ido
+(ido-mode 1)
+(setq-default
+    ido-auto-merge-work-directories-length nil
+    ido-enable-last-directory-history t
+    ido-case-fold 1
+    ido-decorations '("" "" "\n"
+			"\n..." " ->" ""
+			" [No match]"
+			" [Matched]"
+			" [Not readable]"
+			" [Too big]"
+			" [Confirm]"))
+;; Theme
+(use-package atom-one-dark-theme)
+(load-theme 'atom-one-dark t)
+
+;; mode-line
+(set-face-attribute 'mode-line nil
+		    :background "gray60"
+		    :foreground "black"
+		    :height 100
+		    :box '(:style released-button :line-width -1 :color nil))
+(set-face-attribute 'mode-line-buffer-id nil
+		    :foreground "black"
+		    :weight 'bold
+		    :height 130)
+(set-face-attribute 'mode-line-inactive nil
+		    :background "gray30"
+		    :foreground "gray10"
+		    :weight 'normal
+		    :height 100)
+
+;; line-number
+(set-face-attribute 'line-number nil
+		    :background "gray30"
+		    :foreground "black")
 
 (use-package evil
   :config
@@ -66,17 +106,11 @@
   :config
   (add-hook 'prog-mode-hook 'flycheck-mode))
 
-(use-package vscode-dark-plus-theme
-  :config
-  (load-theme 'vscode-dark-plus t)
-  (set-face-background 'line-number "#333333")
-  (setq frame-background-mode 'dark)
-  (set-face-background 'mode-line-inactive "#000044")
-  (set-face-background 'mode-line "#0000aa")
-  (set-face-foreground 'mode-line-inactive "#7d7d7d"))
 
 ;;; Keybinds:
+;; Open a terminal emulator
 (global-set-key (kbd "C-c t") (kbd (concat "M-! " user-terminal)))
-(global-set-key (kbd "C-c C-t") (kbd (concat "M-! " user-terminal)))
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;;; .emacs ends here
