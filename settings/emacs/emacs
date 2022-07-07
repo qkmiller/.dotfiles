@@ -3,8 +3,14 @@
 ;;; 	My Emacs config
 ;;; Code:
 
+
 ;; User Variables:
 (defvar user-terminal "gnome-terminal")
+
+
+;; Font
+(set-face-attribute 'default nil :height 130)
+
 
 ;; Set utf-8
 (prefer-coding-system 'utf-8)
@@ -13,24 +19,20 @@
 (set-keyboard-coding-system 'utf-8)
 (setq-default default-buffer-file-coding-system 'utf-8)
 
+
+;; Indentation
+(setq-default indent-tabs-mode nil)
+
+
+;; Misc Settings
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+(setq create-lockfiles nil)
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file t)
 (setq help-window-select t)
 (setq vc-follow-symlinks nil)
-(setq dired-listing-switches "-lXah")
-(setq-default dired-dwim-target t)
-(setq-default python-shell-interpreter "python3")
-
-;; org-mode
-(setq-default org-enforce-todo-dependencies nil
-	      org-startup-indented t
-	      org-hide-emphasis-markers t
-	      org-fontify-done-headline t
-	      org-pretty-entities t
-	      org-default)
-
+(setq dired-listing-switches "-lah")
 (fset 'yes-or-no-p 'y-or-n-p)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'column-number-mode)
@@ -38,79 +40,113 @@
 (add-to-list 'default-frame-alist '(width . 120))
 (setq completion-ignore-case t)
 (tool-bar-mode -1)
+(setq-default dired-dwim-target t)
+(setq-default python-shell-interpreter "python3")
+(setq inhibit-startup-screen t)
+
+
+;; org-mode
+(setq-default org-enforce-todo-dependencies nil
+              org-startup-indented t
+              org-hide-emphasis-markers t
+              org-fontify-done-headline t
+              org-pretty-entities t
+              org-default)
+
+
+
+;; Match parenthesis
+(setq-default show-paren-delay 0)
+(add-hook 'prog-mode-hook 'show-paren-mode)
+(set-face-background 'show-paren-match "#555555")
+
 
 ;;; Packages:
 (eval-and-compile
-    (require 'package)
-    (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-			     ("melpa-stable" . "https://stable.melpa.org/packages/")))
-    (package-initialize)
-    (unless (package-installed-p 'use-package)
-      (package-refresh-contents)
-      (package-install 'use-package))
-    (require 'use-package)
-    (setf use-package-always-ensure t))
+  (require 'package)
+  (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                           ("melpa-stable" . "https://stable.melpa.org/packages/")))
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (require 'use-package)
+  (setf use-package-always-ensure t))
 
 (eval-when-compile
   (require 'use-package))
 
+
 ;; ido
 (ido-mode 1)
 (setq-default
-    ido-auto-merge-work-directories-length nil
-    ido-enable-last-directory-history t
-    ido-case-fold 1
-    ido-decorations '("" "" "\n"
-			"\n..." " ->" ""
-			" [No match]"
-			" [Matched]"
-			" [Not readable]"
-			" [Too big]"
-			" [Confirm]"))
+ ido-auto-merge-work-directories-length nil
+ ido-enable-last-directory-history t)
+
+
 ;; Theme
 (use-package atom-one-dark-theme)
 (load-theme 'atom-one-dark t)
 
+
 ;; mode-line
 (set-face-attribute 'mode-line nil
-		    :background "gray60"
-		    :foreground "black"
-		    :height 100
-		    :box '(:style released-button :line-width -1 :color nil))
+                    :background "gray50"
+                    :foreground "black"
+                    :height 100
+                    :box '(:style released-button :line-width -1 :color nil))
 (set-face-attribute 'mode-line-buffer-id nil
-		    :foreground "black"
-		    :weight 'bold
-		    :height 130)
+                    :foreground "darkblue"
+                    :weight 'bold
+                    :height 150)
 (set-face-attribute 'mode-line-inactive nil
-		    :background "gray30"
-		    :foreground "gray10"
-		    :weight 'normal
-		    :height 100)
+                    :background "gray25"
+                    :foreground "gray10"
+                    :weight 'normal
+                    :height 100)
+
 
 ;; line-number
 (set-face-attribute 'line-number nil
-		    :background "gray30"
-		    :foreground "black")
+                    :background "#24272b"
+                    :foreground "grey30")
 
 (use-package evil
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
   (setq evil-complete-next-func 'hippie-expand))
+
+(use-package evil-collection)
 
 (use-package magit)
 
 (use-package which-key
   :config (which-key-mode 1))
 
-(use-package flycheck
+(use-package lsp-mode
   :config
-  (add-hook 'prog-mode-hook 'flycheck-mode))
+  (setq lsp-log-io nil)
+  :hook
+  (python-mode . lsp-deferred)
+  (javascript-mode . lsp-deferred)
+  (web-mode . lsp-deferred))
+
+(use-package lsp-ui)
+
+(use-package project)
 
 
 ;;; Keybinds:
-;; Open a terminal emulator
+(evil-collection-init)
 (global-set-key (kbd "C-c t") (kbd (concat "M-! " user-terminal)))
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
-
+(global-set-key (kbd "C-c C-f") 'project-find-file)
+(add-hook 'ido-setup-hook 'ido-my-keys)
+(defun ido-my-keys ()
+  "My keybindings for ido."
+  (define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-common-completion-map (kbd "C-p") 'ido-prev-match))
 ;;; .emacs ends here
