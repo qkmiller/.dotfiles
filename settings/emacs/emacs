@@ -24,25 +24,36 @@
 (setq-default indent-tabs-mode nil)
 
 
-;; Misc Settings
-(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-(setq create-lockfiles nil)
+;; Autosaves and Backups
+(setq backup-directory-alist `((".*" . ,temporary-file-directory))
+      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
+      create-lockfiles nil)
+
+
+;; Separate customize file
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file t)
-(setq help-window-select t)
-(setq vc-follow-symlinks nil)
-(setq dired-listing-switches "-lah")
-(fset 'yes-or-no-p 'y-or-n-p)
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(add-hook 'prog-mode-hook 'column-number-mode)
+
+
+;; Initial Frame Size
 (add-to-list 'default-frame-alist '(height . 48))
 (add-to-list 'default-frame-alist '(width . 120))
-(setq completion-ignore-case t)
+
+
+;; Miscelanious Settings
+(fset 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
-(setq-default dired-dwim-target t)
 (setq-default python-shell-interpreter "python3")
-(setq inhibit-startup-screen t)
+(setq help-window-select t
+      vc-follow-symlinks nil
+      inhibit-startup-screen t
+      ring-bell-function 'ignore
+      confirm-nonexistent-file-or-buffer nil)
+
+
+;; Dired
+(setq dired-listing-switches "-lah")
+(setq dired-dwim-target t)
 
 
 ;; org-mode
@@ -54,14 +65,20 @@
               org-default)
 
 
-
 ;; Match parenthesis
 (setq-default show-paren-delay 0)
 (add-hook 'prog-mode-hook 'show-paren-mode)
 (set-face-background 'show-paren-match "#555555")
 
 
-;;; Packages:
+;; ido
+(setq-default
+ ido-auto-merge-work-directories-length nil
+ ido-enable-last-directory-history t)
+(ido-mode 1)
+
+
+;; Packages
 (eval-and-compile
   (require 'package)
   (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -73,16 +90,6 @@
   (require 'use-package)
   (setf use-package-always-ensure t))
 
-(eval-when-compile
-  (require 'use-package))
-
-
-;; ido
-(ido-mode 1)
-(setq-default
- ido-auto-merge-work-directories-length nil
- ido-enable-last-directory-history t)
-
 
 ;; Theme
 (use-package atom-one-dark-theme)
@@ -90,13 +97,14 @@
 
 
 ;; mode-line
+(add-hook 'prog-mode-hook 'column-number-mode)
 (set-face-attribute 'mode-line nil
                     :background "gray50"
                     :foreground "black"
                     :height 100
                     :box '(:style released-button :line-width -1 :color nil))
 (set-face-attribute 'mode-line-buffer-id nil
-                    :foreground "darkblue"
+                    :foreground "black"
                     :weight 'bold
                     :height 150)
 (set-face-attribute 'mode-line-inactive nil
@@ -107,46 +115,66 @@
 
 
 ;; line-number
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (set-face-attribute 'line-number nil
                     :background "#24272b"
                     :foreground "grey30")
 
+
+;; Evil-Mode
 (use-package evil
-  :init
-  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
   (setq evil-complete-next-func 'hippie-expand))
 
-(use-package evil-collection)
 
+;; Magit
 (use-package magit)
 
+
+;; Which-Key
 (use-package which-key
   :config (which-key-mode 1))
 
+
+;; LSP-Mode
 (use-package lsp-mode
   :config
   (setq lsp-log-io nil)
   :hook
   (python-mode . lsp-deferred)
-  (javascript-mode . lsp-deferred)
-  (web-mode . lsp-deferred))
+  (js-mode . lsp-deferred))
 
-(use-package lsp-ui)
 
+;; Project
 (use-package project)
 
 
-;;; Keybinds:
-(evil-collection-init)
+;; Yasnippet
+(use-package yasnippet
+  :config
+  (setq yas-global-mode t))
+
+
+;; Yastnippet-Snippets
+(use-package yasnippet-snippets)
+
+
+;; Emmet-Mode
+(use-package emmet-mode
+  :config
+  (setq emmet-preview-default nil))
+
+
+;; Custom Keybinds
 (global-set-key (kbd "C-c t") (kbd (concat "M-! " user-terminal)))
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c C-f") 'project-find-file)
+(global-set-key (kbd "C-c f") 'project-find-file)
 (add-hook 'ido-setup-hook 'ido-my-keys)
 (defun ido-my-keys ()
   "My keybindings for ido."
   (define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)
   (define-key ido-common-completion-map (kbd "C-p") 'ido-prev-match))
-;;; .emacs ends here
+
+;; .emacs ends here
