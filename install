@@ -25,10 +25,8 @@ dir=$(dirname $(basename $0))
 
 prompt alacritty $dir/install_scripts/alacritty.sh
 prompt bash $dir/install_scripts/bash.sh
-prompt emacs $dir/install_scripts/emacs.sh
 prompt git $dir/install_scripts/git.sh
 prompt input $dir/install_scripts/input.sh
-prompt newsboat $dir/install_scripts/newsboat.sh
 prompt tmux $dir/install_scripts/tmux.sh
 prompt vim $dir/install_scripts/vim.sh
 prompt xterm $dir/install_scripts/x.sh

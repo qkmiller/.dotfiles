@@ -1,1 +1,8 @@
 ZDOTDIR="$HOME/.zsh"
+EDITOR="vim"
+PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+PATH="$HOME/dev/go/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+HISTFILE="$HOME/.zsh/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000

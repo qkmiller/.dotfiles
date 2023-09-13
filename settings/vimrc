@@ -1,54 +1,48 @@
-"set term=screen-256color
-set t_Co=16
-set background=dark
 filetype plugin indent on
 syntax enable
+color default
+set bg=dark
 
-hi Comment      cterm=NONE            ctermfg=8
-hi LineNr       cterm=NONE            ctermfg=8
-hi ModeMsg      cterm=BOLD,REVERSE    ctermfg=10    ctermbg=NONE
-hi PmenuSel     cterm=NONE            ctermfg=NONE  ctermbg=4
-hi Pmenu        cterm=NONE            ctermfg=NONE  ctermbg=8
-hi MatchParen   cterm=BOLD            ctermfg=6     ctermbg=NONE
-hi StatusLineNC cterm=BOLD,REVERSE    ctermfg=8     ctermbg=NONE
-"hi StatusLine   cterm=NONE            ctermfg=15    ctermbg=8
-hi Visual       cterm=NONE            ctermfg=0     ctermbg=7
-hi WildMenu     cterm=BOLD            ctermfg=NONE  ctermbg=4
-hi Search       cterm=NONE            ctermfg=0     ctermbg=3
-hi IncSearch    cterm=NONE            ctermfg=0     ctermbg=15
+hi Comment      cterm=NONE          ctermfg=2
+hi LineNr       cterm=NONE          ctermfg=8
+hi PmenuSel     cterm=NONE          ctermfg=15      ctermbg=4
+hi Pmenu        cterm=NONE          ctermfg=15      ctermbg=8
+hi MatchParen   cterm=BOLD          ctermfg=6       ctermbg=NONE
+hi StatusLineNC                     ctermfg=8
+hi Visual       cterm=NONE          ctermfg=0       ctermbg=12
+hi WildMenu     cterm=BOLD          ctermfg=15      ctermbg=4
+hi Special      cterm=NONE          ctermfg=9       ctermbg=NONE
+hi Search       cterm=NONE          ctermfg=0       ctermbg=15
+hi IncSearch    cterm=NONE          ctermfg=0       ctermbg=11
 
 let macvim_skip_colorscheme=1
-"set autochdir
-"set autoread
 set autoindent smartindent
 set belloff=all
 "set backspace=indent,eol,start
 set breakindent
 set formatoptions+=j
-set hidden
 set hlsearch
 set incsearch ignorecase smartcase 
+set ignorecase smartcase 
 set noshowmatch
-"set laststatus=2
+set laststatus=2
 set number
 set noswapfile
 set nowrap
 set pastetoggle=<F2>
-set splitright splitbelow
 set tabstop=4 softtabstop=-1 shiftwidth=0 expandtab
 set ttimeoutlen=100
 set undofile undodir=$HOME/.vim/tmp/undo
 set viminfofile=$HOME/.vim/.viminfo
 set wildignore=*.a,*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
 set wildmenu
-"set wrap
 
-"let g:netrw_winsize=20
-"let g:netrw_keepdir=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide='.*\.a$,.*\.out$,.*\.o,.*\.obj$,.*\.swp$,node_modules,.*\.git$,.*\.exe$'
 
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
-"nnoremap <Tab> :Lex<CR>
+nnoremap <Tab> :Lex<CR>
 cnoremap Wq wq
 cnoremap WQ wq
 cnoremap Q q
