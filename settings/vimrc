@@ -5,17 +5,18 @@ if &t_Co > 16
         set t_Co=16
         color default
         set bg=dark
-        hi Comment      cterm=NONE          ctermfg=8
-        hi LineNr       cterm=NONE          ctermfg=8
-        hi PmenuSel     cterm=NONE          ctermfg=15      ctermbg=4
-        hi Pmenu        cterm=NONE          ctermfg=15      ctermbg=8
-        hi MatchParen   cterm=BOLD          ctermfg=6       ctermbg=NONE
-        hi StatusLineNC                     ctermfg=8
-        hi Visual       cterm=NONE          ctermfg=15      ctermbg=8
-        hi WildMenu     cterm=BOLD          ctermfg=15      ctermbg=4
-        hi Search       cterm=NONE          ctermfg=0       ctermbg=15
-        hi IncSearch    cterm=NONE          ctermfg=0       ctermbg=11
-        hi Constant     cterm=BOLD
+        hi Comment      cterm=NONE      ctermfg=8
+        hi LineNr       cterm=NONE      ctermfg=8
+        hi PmenuSel     cterm=NONE      ctermfg=15      ctermbg=4
+        hi Pmenu        cterm=NONE      ctermfg=15      ctermbg=8
+        hi MatchParen   cterm=BOLD      ctermfg=6       ctermbg=NONE
+        hi StatusLineNC                 ctermfg=8
+        hi StatusLine                   ctermfg=8       ctermbg=15
+        hi Visual       cterm=NONE      ctermfg=15      ctermbg=8
+        hi WildMenu     cterm=BOLD      ctermfg=15      ctermbg=4
+        hi Search       cterm=NONE      ctermfg=0       ctermbg=15
+        hi IncSearch    cterm=NONE      ctermfg=0       ctermbg=11
+"        hi Constant     cterm=BOLD
 endif
 
 let macvim_skip_colorscheme=1
@@ -33,7 +34,6 @@ set ttimeoutlen=100
 set undofile undodir=$HOME/.vim/tmp/undo
 set viminfofile=$HOME/.vim/.viminfo
 set wildmenu wildignore=*.a,*.out,*.o,*.obj,*.swp,node_modules,.git,*.exe
-
 let g:netrw_liststyle=3
 let g:netrw_list_hide='.*\.a$,.*\.out$,.*\.o,.*\.obj$,.*\.swp$,node_modules,.*\.git$,.*\.exe$'
 
